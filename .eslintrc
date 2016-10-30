@@ -1,0 +1,24 @@
+{
+  "extends": "airbnb",
+  "env": {
+    "node": true
+  },
+  "rules": {
+    "arrow-parens": [1, "as-needed"],
+    "brace-style": [1, "stroustrup", { "allowSingleLine": true }],
+    "comma-dangle": [2, "never"],
+    "no-unused-vars": 1,
+    "spaced-comment": [
+      1,
+      "always", {
+        "exceptions": [
+          "-+"
+        ],
+        "markers": [
+          "eslint-disable",
+          "eslint-disable-line"
+        ]
+      }
+    ]
+  }
+}
