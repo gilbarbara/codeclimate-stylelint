@@ -1,42 +1,53 @@
-/*eslint-disable no-console, no-var */
-var CODE_DIR = '/code';
+/* eslint-disable no-console */
+const CODE_DIR = '/code';
+const APP_DIR = '/usr/src/app';
 process.chdir(CODE_DIR);
 
 // Redirect `console.log` so that we are the only ones
 // writing to STDOUT
-var stdout = console.log;
+const stdout = console.log;
 console.log = console.error;
 
-var stylelint = require('stylelint');
-var fs = require('fs');
-var path = require('path');
-var glob = require('glob');
+const stylelint = require('stylelint');
+const fs = require('fs');
+const path = require('path');
+const glob = require('glob');
 
-var STYLELINT_CONFIG_FILE = path.join(CODE_DIR, '.stylelintrc');
-var options = { extensions: ['.scss', '.sss', '.less'] };
-var analysisFiles;
-var debug = false;
+const STYLELINT_CONFIG_FILE = path.join(CODE_DIR, '.stylelintrc');
+const options = { extensions: ['.scss', '.sss', '.less'] };
+let engineConfig;
+let analysisFiles;
+let debug = false;
 
-function buildIssueJson(message, path) {
-  var checkName = message.rule;
-  var line = message.line || 1;
-  var column = message.column || 1;
+function runWIthTiming(name) {
+  const start = new Date();
 
-  var issue = {
+  return () => {
+    const duration = (new Date() - start) / 1000;
+    console.error(`•• Timing: .${name}: ${duration}s`);
+  };
+}
+
+function buildIssueJson(message, filepath) {
+  const checkName = message.rule;
+  const line = message.line || 1;
+  const column = message.column || 1;
+
+  const issue = {
     type: 'issue',
     categories: ['Style'],
     check_name: checkName,
     description: message.text,
     location: {
-      path: path.replace('/code/', ''),
+      path: filepath.replace('/code/', ''),
       positions: {
         begin: {
-          line: line,
-          column: column
+          line,
+          column
         },
         end: {
-          line: line,
-          column: column
+          line,
+          column
         }
       }
     }
@@ -46,8 +57,8 @@ function buildIssueJson(message, path) {
 }
 
 function isFileWithMatchingExtension(file, extensions) {
-  var stats = fs.lstatSync(file);
-  var extension = '.' + file.split('.').pop();
+  const stats = fs.lstatSync(file);
+  const extension = `.${file.split('.').pop()}`;
   return (
     stats.isFile() && !stats.isSymbolicLink()
     && extensions.indexOf(extension) >= 0
@@ -56,14 +67,12 @@ function isFileWithMatchingExtension(file, extensions) {
 
 function prunePathsWithinSymlinks(paths) {
   // Extracts symlinked paths and filters them out, including any child paths
-  var symlinks = paths.filter(function(path) {
-    return fs.lstatSync(path).isSymbolicLink();
-  });
+  const symlinks = paths.filter(p => fs.lstatSync(p).isSymbolicLink());
 
-  return paths.filter(function(path) {
-    var withinSymlink = false;
-    symlinks.forEach(function(symlink) {
-      if (path.indexOf(symlink) === 0) {
+  return paths.filter(p => {
+    let withinSymlink = false;
+    symlinks.forEach(symlink => {
+      if (p.indexOf(symlink) === 0) {
         withinSymlink = true;
       }
     });
@@ -74,37 +83,36 @@ function prunePathsWithinSymlinks(paths) {
 function inclusionBasedFileListBuilder(includePaths) {
   // Uses glob to expand the files and directories in includePaths, filtering
   // down to match the list of desired extensions.
-  return function(extensions) {
-    var analysisFiles = [];
+  return extensions => {
+    const filesAnalyzed = [];
 
-    includePaths.forEach(function(fileOrDirectory) {
+    includePaths.forEach(fileOrDirectory => {
       if ((/\/$/).test(fileOrDirectory)) {
         // if it ends in a slash, expand and push
-        var filesInThisDirectory = glob.sync(
-          fileOrDirectory + '/**/**'
+        const filesInThisDirectory = glob.sync(
+          `${fileOrDirectory}/**/**`
         );
-        prunePathsWithinSymlinks(filesInThisDirectory).forEach(function(file) {
+        prunePathsWithinSymlinks(filesInThisDirectory).forEach(file => {
           if (isFileWithMatchingExtension(file, extensions)) {
-            analysisFiles.push(file);
+            filesAnalyzed.push(file);
           }
         });
       }
-      else {
-        if (isFileWithMatchingExtension(fileOrDirectory, extensions)) {
-          analysisFiles.push(fileOrDirectory);
-        }
+      else if (isFileWithMatchingExtension(fileOrDirectory, extensions)) {
+        filesAnalyzed.push(fileOrDirectory);
       }
     });
 
-    return analysisFiles;
+    return filesAnalyzed;
   };
 }
 
-function engineConfig() {
-  var buildFileList;
+function configEngine() {
+  const timer = runWIthTiming('engineConfig');
+  let buildFileList;
 
   if (fs.existsSync('/config.json')) {
-    var engineConfig = JSON.parse(fs.readFileSync('/config.json'));
+    engineConfig = JSON.parse(fs.readFileSync('/config.json'));
 
     if (engineConfig.include_paths) {
       buildFileList = inclusionBasedFileListBuilder(
@@ -118,50 +126,51 @@ function engineConfig() {
 
     analysisFiles = buildFileList(options.extensions);
 
-    var userConfig = engineConfig.config || {};
+    const userConfig = engineConfig.config || {};
 
     if (userConfig.config) {
-      options.configFile = CODE_DIR + '/' + userConfig.config;
+      options.configFile = `${CODE_DIR}/${userConfig.config}`;
     }
 
     if (userConfig.debug) {
       debug = true;
     }
 
-    if (debug) {
-      process.stderr.write('engineConfig', engineConfig);
-    }
+    timer();
   }
 }
 
 function analyzeFiles() {
+  const lintTiming = runWIthTiming('lint');
+
   stylelint.lint({
     configFile: options.configFile,
-    files: analysisFiles
+    files: analysisFiles,
+    configBasedir: APP_DIR
   })
-    .then(function(data) {
+    .then(data => {
+      lintTiming();
+
+      const analyzeTiming = runWIthTiming('analyze');
       if (data.errored) {
-        data.results.forEach(function(d) {
+        data.results.forEach(d => {
           if (d.errored) {
-            d.warnings.forEach(function(w) {
-              var issueJson = buildIssueJson(w, d.source);
-              process.stdout.write(issueJson + "\u0000\n");
+            d.warnings.forEach(w => {
+              const issueJson = buildIssueJson(w, d.source);
+              process.stdout.write(`${issueJson}\u0000`);
             });
           }
         });
       }
+
+      analyzeTiming();
     })
-    .catch(function(err) {
-      // do things with err e.g.
+    .catch(err => {
       console.error(err.stack);
     });
-
-  if (debug) {
-    process.stderr.write('Analyzing: ' + analysisFiles + '\n');
-  }
 }
 
-engineConfig();
+configEngine();
 
 if (fs.existsSync(STYLELINT_CONFIG_FILE)) {
   analyzeFiles();
