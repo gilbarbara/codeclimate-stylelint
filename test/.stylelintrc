@@ -12,9 +12,16 @@
       },
       "utilitySelectors": "^\\.util-[a-z]+$"
     },
+    "color-named": "never",
     "declaration-empty-line-before": null,
     "declaration-colon-newline-after": null,
+    "declaration-block-properties-order": ["alphabetical", { "severity": "warning" }],
     "indentation": [2, { "ignore": ["value"] }],
-    "selector-pseudo-element-colon-notation": null
+    "max-nesting-depth": 4,
+    "number-max-precision": 4,
+    "selector-class-pattern": "^((?:-{1,2}|_{2})?[a-z0-9]+(?:(?:-{1,2}|_{2})[a-z0-9]+)*)(?:-{1,2}|_{2})?$",
+    "selector-max-specificity": "1, 2, 0",
+    "selector-pseudo-element-colon-notation": null,
+    "selector-max-compound-selectors": 4
   }
 }

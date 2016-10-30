@@ -8,12 +8,10 @@ body {
   min-height: 100%;
 }
 
-
-
-
 img {
-height: auto;
-max-width: 100%;
+  height: auto;
+  opacity: .1;
+  max-width: 100%;
 }
 
 a {
@@ -24,21 +22,48 @@ a {
   }
 }
 
+.app {
+  &__items__kols {
+    &__item {
+      background-color: #fff;
+
+      &--app {
+        color: #000000;
+      }
+    }
+  }
+}
+
 #react {
   min-height: 100vh;
+
+  > div > div {
+    color: #AAA;
+
+    .col {
+      max-width: 200px;
+
+      span {
+        color: green;
+        
+        span {
+          background-color: rgba(#000, .1);
+        }
+      }
+    }
+  }
 }
 
 .not-found {
   text-align: center;
 
   h1 {
-font-size: 128px;
-margin: 0;
+    font-size: 128px;
+    margin: 0;
 
-@media all and (min-width: 300px) {
-font-size: 256px;
+    @media all and (min-width: 300px) {
+      font-size: 256px;
 
-
-
-} }
+    }
+  }
 }
