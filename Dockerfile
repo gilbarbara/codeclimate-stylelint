@@ -4,7 +4,7 @@ MAINTAINER Gil Barbara
 
 WORKDIR /usr/src/app
 COPY package.json /usr/src/app/
-RUN npm install
+RUN npm install --only=production
 
 RUN useradd -m -u 9000 app
 
