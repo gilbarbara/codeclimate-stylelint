@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 const CODE_DIR = '/code';
-const APP_DIR = '/usr/src/app';
 process.chdir(CODE_DIR);
 
 // Redirect `console.log` so that we are the only ones
@@ -145,7 +144,6 @@ function analyzeFiles() {
   stylelint.lint({
     configFile: options.configFile,
     files: analysisFiles,
-    configBasedir: APP_DIR
   })
     .then(data => {
       lintTiming();
