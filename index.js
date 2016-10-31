@@ -36,6 +36,7 @@ function buildIssueJson(message, filepath) {
     categories: ['Style'],
     check_name: checkName,
     description: message.text,
+    remediation_points: 50000,
     location: {
       path: filepath.replace('/code/', ''),
       positions: {
