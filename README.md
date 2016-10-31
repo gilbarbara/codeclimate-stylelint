@@ -9,7 +9,13 @@ Stylelint is a tool to help you enforce consistent conventions and avoid errors 
 
 1. If you haven't already, [install the Code Climate CLI](https://github.com/codeclimate/codeclimate).
 2. Run `codeclimate engines:enable stylelint`. This command both installs the engine and enables it in your `.codeclimate.yml` file.
+3. Add a stylelint [config](https://github.com/stylelint/stylelint/blob/master/docs/user-guide/configuration.md#loading-the-configuration-object) file.
 3. You're ready to analyze! Browse into your project's folder and run `codeclimate analyze`.
+
+### Configuration Options
+
+- `ignore_warnings`: true|false (default false) - skip warnings with styletint `quiet` flag
+- `config`: Specify a relative path for the configuration file. (ex: config/.stylelintrc)
 
 ### Need help?
 
