@@ -1,11 +1,11 @@
 {
   "name": "stylelint",
-  "description": "A mighty, modern CSS linter.",
+  "description": "Enforce consistent conventions and avoid errors in your stylesheets.",
   "maintainer": {
     "name": "Gil Barbara",
     "email": "gilbarbara@gmail.com"
   },
-  "languages" : ["CSS", "SCSS"],
-  "version": "d18as201",
+  "languages" : ["CSS", "Less", "SCSS", "SugarSS"],
+  "version": "7.5.0",
   "spec_version": "0.0.1"
 }
