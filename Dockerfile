@@ -1,4 +1,4 @@
-FROM node
+FROM node:slim
 
 MAINTAINER Gil Barbara
 
@@ -13,6 +13,7 @@ RUN chown -R app:app /usr/src/app
 
 USER app
 
+WORKDIR /code
 VOLUME /code
 
 CMD ["node", "index.js"]
