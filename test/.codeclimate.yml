@@ -5,3 +5,5 @@ engines:
 ratings:
   paths:
   - "**.scss"
+exclude_paths:
+  - node_modules/**/*
