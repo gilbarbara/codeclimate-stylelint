@@ -13,13 +13,12 @@ const fs = require('fs');
 const path = require('path');
 const glob = require('glob');
 
-const STYLELINT_CONFIG_FILE = path.join(CODE_DIR, '.stylelintrc');
 const options = { extensions: ['.scss', '.sss', '.less'] };
 let engineConfig;
 let analysisFiles;
 let debug = false;
 
-function runWIthTiming(name) {
+function runTiming(name) {
   const start = new Date();
 
   return () => {
@@ -108,7 +107,7 @@ function inclusionBasedFileListBuilder(includePaths) {
 }
 
 function configEngine() {
-  const timer = runWIthTiming('engineConfig');
+  const engineTiming = runTiming('engineConfig');
   let buildFileList;
 
   if (fs.existsSync('/config.json')) {
@@ -136,12 +135,12 @@ function configEngine() {
       debug = true;
     }
 
-    timer();
+    engineTiming();
   }
 }
 
 function analyzeFiles() {
-  const lintTiming = runWIthTiming('lint');
+  const lintTiming = runTiming('lint');
 
   stylelint.lint({
     configFile: options.configFile,
@@ -151,7 +150,8 @@ function analyzeFiles() {
     .then(data => {
       lintTiming();
 
-      const analyzeTiming = runWIthTiming('analyze');
+      const analyzeTiming = runTiming('analyze');
+
       if (data.errored) {
         data.results.forEach(d => {
           if (d.errored) {
@@ -165,18 +165,12 @@ function analyzeFiles() {
 
       analyzeTiming();
     })
-    .catch(err => {
-      console.error(err.stack);
+    .catch(() => {
+      console.error('Error: No configuration provided. Make sure you have added a config file with rules enabled.');
+      console.error('See our documentation at https://docs.codeclimate.com/docs/stylelint for more information.');
+      process.exit(1);
     });
 }
 
 configEngine();
-
-if (fs.existsSync(STYLELINT_CONFIG_FILE)) {
-  analyzeFiles();
-}
-else {
-  console.error('No rules are configured. Make sure you have added a config file with rules enabled.');
-  console.error('See our documentation at https://docs.codeclimate.com/docs/stylelint for more information.');
-  process.exit(1);
-}
+analyzeFiles();
