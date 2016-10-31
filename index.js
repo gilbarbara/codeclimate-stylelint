@@ -4,12 +4,11 @@ process.chdir(CODE_DIR);
 
 // Redirect `console.log` so that we are the only ones
 // writing to STDOUT
-const stdout = console.log;
+const stdout = console.log; //eslint-disable-line no-unused-vars
 console.log = console.error;
 
 const stylelint = require('stylelint');
 const fs = require('fs');
-const path = require('path');
 const glob = require('glob');
 
 const options = { extensions: ['.scss', '.sss', '.less'] };
@@ -118,7 +117,6 @@ function configEngine() {
       );
     }
     else {
-      // No explicit includes, let's try with everything
       buildFileList = inclusionBasedFileListBuilder(['./']);
     }
 
