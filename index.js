@@ -15,7 +15,6 @@ const glob = require('glob');
 const options = { extensions: ['.scss', '.sss', '.less'] };
 let engineConfig;
 let analysisFiles;
-let debug = false;
 
 function runTiming(name) {
   const start = new Date();
@@ -127,12 +126,14 @@ function configEngine() {
 
     const userConfig = engineConfig.config || {};
 
-    if (userConfig.config) {
-      options.configFile = `${CODE_DIR}/${userConfig.config}`;
+    if (userConfig.ignore_warnings) {
+      options.configOverrides = {
+        quiet: true
+      };
     }
 
-    if (userConfig.debug) {
-      debug = true;
+    if (userConfig.config) {
+      options.configFile = userConfig.config;
     }
 
     engineTiming();
@@ -144,7 +145,8 @@ function analyzeFiles() {
 
   stylelint.lint({
     configFile: options.configFile,
-    files: analysisFiles,
+    configOverrides: options.configOverrides,
+    files: analysisFiles
   })
     .then(data => {
       lintTiming();
