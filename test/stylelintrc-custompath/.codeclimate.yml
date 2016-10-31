@@ -2,6 +2,9 @@
 engines:
   stylelint:
     enabled: true
+    config:
+      ignore_warnings: true
+      config: config/.stylelintrc
 ratings:
   paths:
   - "**.scss"
