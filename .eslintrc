@@ -3,6 +3,9 @@
   "env": {
     "node": true
   },
+  "settings": {
+    "import/resolver": "node"
+  },
   "rules": {
     "arrow-parens": [1, "as-needed"],
     "brace-style": [1, "stroustrup", { "allowSingleLine": true }],
