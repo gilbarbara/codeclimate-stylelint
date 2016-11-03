@@ -12,7 +12,7 @@ const stylelint = require('stylelint');
 const fs = require('fs');
 const glob = require('glob');
 
-const options = { extensions: ['.scss', '.sss', '.less'] };
+const options = { extensions: ['.scss', '.less', '.sss'] };
 let engineConfig;
 let analysisFiles;
 
@@ -122,6 +122,12 @@ function configEngine() {
     }
 
     analysisFiles = buildFileList(options.extensions);
+
+    if (!analysisFiles.length) {
+      console.error(`No files to lint with the extensions: "${options.extensions.join('", "')}".`);
+      console.error('See our documentation at https://docs.codeclimate.com/docs/stylelint for more information.');
+      process.exit(1);
+    }
 
     const userConfig = engineConfig.config || {};
 
