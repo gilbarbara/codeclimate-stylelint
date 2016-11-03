@@ -172,8 +172,13 @@ function analyzeFiles() {
 
       analyzeTiming();
     })
-    .catch(() => {
-      console.error('Error: No configuration provided. Make sure you have added a config file with rules enabled.');
+    .catch(error => {
+      if (error.message.includes('No configuration provided')) {
+        console.error('Error: No configuration provided. Make sure you have added a config file with rules enabled.');
+      }
+      else {
+        console.error(`Error: ${error.message}`);
+      }
       console.error('See our documentation at https://docs.codeclimate.com/docs/stylelint for more information.');
       process.exit(1);
     });
