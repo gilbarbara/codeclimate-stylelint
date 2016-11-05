@@ -19,6 +19,11 @@ Stylelint is a tool to help you enforce consistent conventions and avoid errors 
 - `ignore_warnings`: true|false (default false) - skip warnings with styletint `quiet` flag
 - `config`: Specify a relative path for the configuration file. (ex: config/.stylelintrc)
 
+### Plugins/Config
+
+The engine has support for [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard/) and [stylelint-scss](https://github.com/kristerkari/stylelint-scss).  
+If you need something else, please open an issue.
+
 ### Need help?
 
 For help with stylelint, [check out their documentation](http://stylelint.io/).
