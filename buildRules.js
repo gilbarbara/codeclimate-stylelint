@@ -79,24 +79,3 @@ rimraf('.tmp_rules', error => {
       });
     });
 });
-/*
- const rules = [
- 'max-empty-lines',
- 'at-rule-empty-line-before',
- 'scss/at-import-partial-extension-blacklist',
- 'scss/at-import-no-partial-leading-underscore'
- ];
-
- const defaultRules = fs.readdirSync(rulesPath).filter(file =>
- file !== 'scss' && fs.statSync(path.join(rulesPath, file)).isDirectory()
- );
-
- const scssRules = fs.readdirSync(`${rulesPath}scss`).filter(file =>
- fs.statSync(path.join(`${rulesPath}scss`, file)).isDirectory()
- );
-
- defaultRules.forEach(d => (rulesOutput[d] = parser(d, 'rules', 'https://github.com/stylelint/stylelint/blob/master/src/rules/')));
-
- scssRules.forEach(d => (rulesOutput[d] = parser(d, 'rules/scss', 'https://github.com/kristerkari/stylelint-scss/tree/master/src/rules/')));
-
- */
