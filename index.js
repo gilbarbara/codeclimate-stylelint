@@ -1,16 +1,18 @@
 /* eslint-disable no-console */
+const stylelint = require('stylelint');
+const fs = require('fs');
+const glob = require('glob');
+
 const APP_DIR = '/usr/src/app';
 const CODE_DIR = '/code';
 process.chdir(CODE_DIR);
+
+const rules = JSON.parse(fs.readFileSync(`${APP_DIR}/rules.json`, 'utf-8'));
 
 // Redirect `console.log` so that we are the only ones
 // writing to STDOUT
 const stdout = console.log; //eslint-disable-line no-unused-vars
 console.log = console.error;
-
-const stylelint = require('stylelint');
-const fs = require('fs');
-const glob = require('glob');
 
 const options = { extensions: ['.scss', '.less', '.sss'] };
 let engineConfig;
@@ -35,6 +37,9 @@ function buildIssueJson(message, filepath) {
     categories: ['Style'],
     check_name: checkName,
     description: message.text,
+    content: {
+      body: rules[message.rule]
+    },
     remediation_points: 50000,
     location: {
       path: filepath.replace('/code/', ''),
