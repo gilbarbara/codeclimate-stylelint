@@ -37,9 +37,6 @@ function buildIssueJson(message, filepath) {
     categories: ['Style'],
     check_name: checkName,
     description: message.text,
-    content: {
-      body: rules[message.rule]
-    },
     remediation_points: 50000,
     location: {
       path: filepath.replace('/code/', ''),
@@ -55,6 +52,12 @@ function buildIssueJson(message, filepath) {
       }
     }
   };
+
+  if (rules[message.rule]) {
+    issue.content = {
+      body: rules[message.rule]
+    };
+  }
 
   return JSON.stringify(issue);
 }

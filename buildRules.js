@@ -11,13 +11,15 @@ const parser = (rule, baseDir, url) => {
   let excerpt;
 
   if (/## Options/.test(readme)) {
-    excerpt = readme.replace(/\## Options[\s\S]+/, '\n'); //eslint-disable-line no-useless-escape
+    excerpt = readme.replace(/\## Options[\s\S]+/, ''); //eslint-disable-line no-useless-escape
   }
   else {
-    excerpt = readme.replace(/```\n[\s\S]+/ig, '```\n\n');
+    excerpt = readme.replace(/```\n[\s\S]+/ig, '```');
   }
 
-  // excerpt += `More [info](${url${d}).`;
+  if (url) {
+    // excerpt += `More [info](${url${d}).`;
+  }
 
   return excerpt;
 };
@@ -68,7 +70,25 @@ rimraf('.tmp_rules', error => {
       });
   });
 
-  Promise.all([stylelint, stylelintSCSS])
+  const stylelintOrder = new Promise((resolve, reject) => {
+    git
+      .clone('https://github.com/hudochenkov/stylelint-order', 'stylelint-order', gitError => {
+        if (gitError) {
+          reject(gitError);
+          return;
+        }
+
+        const rulesPath = '.tmp_rules/stylelint-order/rules/';
+        const rules = fs.readdirSync(rulesPath).filter(file =>
+          fs.statSync(path.join(rulesPath, file)).isDirectory()
+        );
+
+        rules.forEach(d => (rulesOutput[`order/${d}`] = parser(d, rulesPath, 'https://github.com/stylelint/stylelint/blob/master/rules/')));
+        resolve();
+      });
+  });
+
+  Promise.all([stylelint, stylelintSCSS, stylelintOrder])
     .then(() => {
       fs.writeFile('rules.json', JSON.stringify(rulesOutput, null, 2), err => {
         if (err) {
