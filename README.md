@@ -19,9 +19,21 @@ Stylelint is a tool to help you enforce consistent conventions and avoid errors 
 - `ignore_warnings`: true|false (default false) - skip warnings with styletint `quiet` flag
 - `config`: Specify a relative path for the configuration file. (ex: config/.stylelintrc)
 
+### Config
+- [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard/): The standard shareable config for stylelint
+
 ### Plugins/Config
 
-The engine has support for [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard/) and [stylelint-scss](https://github.com/kristerkari/stylelint-scss).  
+This engine has support for the [recommended](https://github.com/stylelint/stylelint/blob/master/docs/user-guide/plugins.md) plugins:
+
+- [stylelint-order](https://github.com/hudochenkov/stylelint-order): Order related linting rules.
+- [stylelint-scss](https://github.com/kristerkari/stylelint-scss): SCSS specific linting rules.
+- [stylelint-declaration-use-variable](https://github.com/sh-waqar/stylelint-declaration-use-variable): Specify properties for which a SCSS variable must be used.
+- [stylelint-selector-bem-pattern](https://github.com/davidtheclark/stylelint-selector-bem-pattern): Specify a BEM pattern for selectors.
+- [stylelint-rscss](https://github.com/rstacruz/stylelint-rscss): Validate RSCSS conventions.
+- [stylelint-selector-no-utility](https://github.com/primer/stylelint-selector-no-utility): A collection of SCSS specific linting rules for stylelint.
+- [stylelint-csstree-validator](https://github.com/csstree/stylelint-validator): Validate CSS values to match W3C specs and browsers extensions.
+
 If you need something else, please open an issue.
 
 ### Need help?
