@@ -21,8 +21,9 @@ Stylelint is a tool to help you enforce consistent conventions and avoid errors 
 
 ### Config
 - [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard/): The standard shareable config for stylelint
+- [stylelint-config-wordpress](https://github.com/ntwb/stylelint-config-wordpress/): WordPress CSS Coding Standards shareable config for stylelint
 
-### Plugins/Config
+### Plugins
 
 This engine has support for the [recommended](https://github.com/stylelint/stylelint/blob/master/docs/user-guide/plugins.md) plugins:
 
