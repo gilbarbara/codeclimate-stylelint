@@ -15,4 +15,4 @@ USER app
 VOLUME /code
 WORKDIR /code
 
-CMD ["node", "/usr/src/app/index.js"]
+CMD ["node", "/usr/src/app/bin/codeclimate-stylelint"]

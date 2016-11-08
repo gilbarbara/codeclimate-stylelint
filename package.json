@@ -9,7 +9,7 @@
     "url": "https://github.com/gilbarbara/codeclimate-stylelint"
   },
   "bugs": "https://github.com/gilbarbara/codeclimate-stylelint/issues",
-  "main": "index.js",
+  "main": "bin/codeclimate-stylelint",
   "keywords": [
     "codeclimate",
     "css",
@@ -19,8 +19,8 @@
     "stylelint"
   ],
   "scripts": {
-    "lint": "eslint index.js",
-    "build": "node parseRules.js"
+    "lint": "eslint bin/codeclimate-stylelint",
+    "build-readups": "./bin/build-readups"
   },
   "dependencies": {
     "glob": "^7.1.1",

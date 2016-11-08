@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /* eslint-disable no-console */
 const stylelint = require('stylelint');
 const fs = require('fs');
@@ -7,7 +9,7 @@ const APP_DIR = '/usr/src/app';
 const CODE_DIR = '/code';
 process.chdir(CODE_DIR);
 
-const rules = JSON.parse(fs.readFileSync(`${APP_DIR}/rules.json`, 'utf-8'));
+const rules = JSON.parse(fs.readFileSync(`${APP_DIR}/config/contents/rules.json`, 'utf-8'));
 
 // Redirect `console.log` so that we are the only ones
 // writing to STDOUT
