@@ -1,3 +1,5 @@
 .git
 .idea
+Dockerfile
+Makefile
 node_modules

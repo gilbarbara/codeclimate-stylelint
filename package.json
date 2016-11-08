@@ -9,7 +9,7 @@
     "url": "https://github.com/gilbarbara/codeclimate-stylelint"
   },
   "bugs": "https://github.com/gilbarbara/codeclimate-stylelint/issues",
-  "main": "index.js",
+  "main": "bin/codeclimate-stylelint",
   "keywords": [
     "codeclimate",
     "css",
@@ -19,11 +19,13 @@
     "stylelint"
   ],
   "scripts": {
-    "lint": "eslint index.js",
-    "build": "node parseRules.js"
+    "lint": "eslint bin/codeclimate-stylelint",
+    "build-readups": "./bin/build-readups"
   },
   "dependencies": {
     "glob": "^7.1.1",
+    "rimraf": "^2.5.4",
+    "simple-git": "^1.59.0",
     "stylelint": "^7.5.0",
     "stylelint-config-standard": "^14.0.0",
     "stylelint-config-wordpress": "^9.1.1",
@@ -37,14 +39,12 @@
   "devDependencies": {
     "babel-eslint": "^7.1.0",
     "eslint": "^3.9.1",
-    "eslint-config-airbnb": "^12.0.0",
+    "eslint-config-airbnb": "^13.0.0",
     "eslint-import-resolver-node": "^0.2.3",
     "eslint-plugin-babel": "^3.3.0",
-    "eslint-plugin-import": "^2.0.1",
+    "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-promise": "^3.3.0",
-    "eslint-plugin-react": "^6.4.1",
-    "rimraf": "^2.5.4",
-    "simple-git": "^1.59.0"
+    "eslint-plugin-react": "^6.4.1"
   }
 }

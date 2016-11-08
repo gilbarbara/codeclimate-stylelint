@@ -1,9 +1,9 @@
+#!/usr/bin/env node
+
 /*eslint-disable no-console */
 const fs = require('fs');
 const path = require('path');
 const rimraf = require('rimraf');
-const git = require('simple-git')(`${__dirname}/.tmp_rules`);
-
 const rulesOutput = {};
 
 const parser = (rule, baseDir, url) => {
@@ -31,6 +31,7 @@ rimraf('.tmp_rules', error => {
   }
 
   fs.mkdirSync('.tmp_rules');
+  const git = require('simple-git')('.tmp_rules');
 
   console.log('Cloning repos...');
 
@@ -90,7 +91,7 @@ rimraf('.tmp_rules', error => {
 
   Promise.all([stylelint, stylelintSCSS, stylelintOrder])
     .then(() => {
-      fs.writeFile('rules.json', JSON.stringify(rulesOutput, null, 2), err => {
+      fs.writeFile('config/contents/rules.json', JSON.stringify(rulesOutput, null, 2), err => {
         if (err) {
           console.log(err);
         }
