@@ -14,7 +14,7 @@ const rules = JSON.parse(fs.readFileSync(`${APP_DIR}/rules.json`, 'utf-8'));
 const stdout = console.log; //eslint-disable-line no-unused-vars
 console.log = console.error;
 
-const options = { extensions: ['.scss', '.less', '.sss'] };
+const options = { extensions: ['.css', '.scss', '.less', '.sss'] };
 let engineConfig;
 let analysisFiles;
 

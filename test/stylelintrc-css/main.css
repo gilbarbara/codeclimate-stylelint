@@ -1,0 +1,58 @@
+html {
+  font-size: 62.5%;
+  -webkit-font-smoothing: antialiased;
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
+
+img {
+  height: auto;
+  opacity: .1;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+a.disabled {
+  pointer-events: none;
+}
+
+.app__items__kols__item {
+  background-color: #fff;
+}
+.app__items__kols__item--app {
+  color: #000000;
+}
+
+#react {
+  min-height: 100vh;
+}
+#react > div > div {
+  color: #AAA;
+}
+#react > div > div .col {
+  max-width: 200px;
+}
+#react > div > div .col span {
+  color: green;
+}
+#react > div > div .col span span {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.not-found {
+  text-align: center;
+}
+.not-found h1 {
+  font-size: 128px;
+  margin: 0;
+}
+@media all and (min-width: 300px) {
+  .not-found h1 {
+    font-size: 256px;
+  }
+}
