@@ -2,18 +2,15 @@
 engines:
   eslint:
     enabled: true
-    channel: "eslint-3"
+    channel: eslint-3
     checks:
       import/no-unresolved:
         enabled: false
-  duplication:
+  stylelint:
     enabled: true
-    config:
-      languages:
-        - javascript
 ratings:
   paths:
   - "**.js"
 exclude_paths:
-  - node_modules/**/*
-  - test/**/*
+- node_modules/**/*
+- test/**/*
