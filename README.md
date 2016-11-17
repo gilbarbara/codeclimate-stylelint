@@ -2,7 +2,7 @@
 
 [![Code Climate](https://codeclimate.com/github/gilbarbara/codeclimate-stylelint/badges/gpa.svg)](https://codeclimate.com/github/gilbarbara/codeclimate-stylelint)
 
-`codeclimate-stylelint` is a Code Climate engine that wraps [stylelint](https://github.com/stylelint/stylelint). You can run it on your command line using the Code Climate CLI, or on our hosted analysis platform.
+`codeclimate-stylelint` is a [Code Climate](http://codeclimate.com/) engine that wraps [stylelint](https://github.com/stylelint/stylelint). You can run it on your command line using the Code Climate CLI, or on the hosted analysis platform.
 
 Stylelint is a tool to help you enforce consistent conventions and avoid errors in your stylesheets.  It can be configured using a [configuration file](http://stylelint.io/user-guide/configuration/).
 
