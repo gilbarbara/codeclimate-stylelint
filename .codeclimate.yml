@@ -6,9 +6,6 @@ engines:
     checks:
       import/no-unresolved:
         enabled: false
-  stylelint:
-    enabled: true
-    channel: "beta"
 ratings:
   paths:
   - "**.js"
