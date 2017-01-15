@@ -29,6 +29,7 @@ This engine has support for the [recommended](https://github.com/stylelint/style
 
 - [stylelint-order](https://github.com/hudochenkov/stylelint-order): Order related linting rules.
 - [stylelint-scss](https://github.com/kristerkari/stylelint-scss): SCSS specific linting rules.
+- [stylelint-declaration-strict-value](https://github.com/AndyOGo/stylelint-declaration-strict-value): A stylelint plugin that enforces variables, functions or custom CSS keywords for property's values.
 - [stylelint-declaration-use-variable](https://github.com/sh-waqar/stylelint-declaration-use-variable): Specify properties for which a SCSS variable must be used.
 - [stylelint-selector-bem-pattern](https://github.com/davidtheclark/stylelint-selector-bem-pattern): Specify a BEM pattern for selectors.
 - [stylelint-rscss](https://github.com/rstacruz/stylelint-rscss): Validate RSCSS conventions.
