@@ -44,12 +44,12 @@ rimraf('.tmp_rules', error => {
           return;
         }
 
-        const rulesPath = '.tmp_rules/stylelint/src/rules/';
+        const rulesPath = '.tmp_rules/stylelint/lib/rules/';
         const rules = fs.readdirSync(rulesPath).filter(file =>
           fs.statSync(path.join(rulesPath, file)).isDirectory()
         );
 
-        rules.forEach(d => (rulesOutput[d] = parser(d, rulesPath, 'https://github.com/stylelint/stylelint/blob/master/src/rules/')));
+        rules.forEach(d => (rulesOutput[d] = parser(d, rulesPath, 'https://github.com/stylelint/stylelint/blob/master/lib/rules/')));
         resolve();
       });
   });
