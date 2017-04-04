@@ -8,8 +8,18 @@ const rimraf = require('rimraf');
 const rulesOutput = {};
 
 const parser = (rule, baseDir, url) => {
-  const readme = fs.readFileSync(`${baseDir}${rule}/README.md`, 'utf-8');
-  let excerpt;
+  const filePath = `${baseDir}${rule}/README.md`;
+  let excerpt = '';
+
+  if (!fs.existsSync(filePath)) {
+    return excerpt;
+  }
+
+  const readme = fs.readFileSync(filePath, 'utf-8');
+
+  if (!readme) {
+    return excerpt;
+  }
 
   if (/## Options/.test(readme)) {
     excerpt = readme.replace(/\## Options[\s\S]+/, ''); //eslint-disable-line no-useless-escape
@@ -82,7 +92,7 @@ rimraf('.tmp_rules', error => {
 
         const rulesPath = '.tmp_rules/stylelint-order/rules/';
         const rules = fs.readdirSync(rulesPath).filter(file =>
-          fs.statSync(path.join(rulesPath, file)).isDirectory()
+          fs.statSync(path.join(rulesPath, file)).isDirectory() && file !== 'deprecated'
         );
 
         rules.forEach(d => (rulesOutput[`order/${d}`] = parser(d, rulesPath, 'https://github.com/stylelint/stylelint/blob/master/rules/')));
