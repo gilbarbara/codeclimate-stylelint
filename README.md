@@ -6,6 +6,13 @@
 
 Stylelint is a tool to help you enforce consistent conventions and avoid errors in your stylesheets.  It can be configured using a [configuration file](http://stylelint.io/user-guide/configuration/).
 
+### Development
+
+If you want to test the code for this engine locally, you'll need to install [docker](https://www.docker.com/).  
+
+Build the docker image with docker `docker build -t codeclimate/codeclimate-stylelint .` (You must be inside the project directory to do this)
+
+To run the tests, cd into `tests/` and run `sh setup.sh` 
 
 ### Installation
 
