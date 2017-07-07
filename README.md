@@ -12,7 +12,7 @@ If you want to test the code for this engine locally, you'll need to install [do
 
 Build the docker image with docker `docker build -t codeclimate/codeclimate-stylelint .` (You must be inside the project directory to do this)
 
-To run the tests, cd into `tests/` and run `sh setup.sh` 
+To run the tests, cd into `test/` and run `sh setup.sh` 
 
 ### Installation
 
