@@ -27,6 +27,7 @@
     "rimraf": "^2.6.1",
     "simple-git": "^1.69.0",
     "stylelint": "^7.10.1",
+    "stylelint-config-property-sort-order-smacss": "^1.1.2",
     "stylelint-config-standard": "^16.0.0",
     "stylelint-config-suitcss": "^11.0.0",
     "stylelint-config-wordpress": "^9.1.1",

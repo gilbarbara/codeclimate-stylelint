@@ -43,6 +43,7 @@ This engine has support for the [recommended](https://github.com/stylelint/style
 - [stylelint-rscss](https://github.com/rstacruz/stylelint-rscss): Validate RSCSS conventions.
 - [stylelint-selector-no-utility](https://github.com/primer/stylelint-selector-no-utility): A collection of SCSS specific linting rules for stylelint.
 - [stylelint-csstree-validator](https://github.com/csstree/stylelint-validator): Validate CSS values to match W3C specs and browsers extensions.
+- [stylelint-config-property-sort-order-smacss](https://github.com/cahamilton/stylelint-config-property-sort-order-smacss)Stylelint config for Property Sort Ordering based on the SMACSS methodology
 
 If you need something else, please open an issue.
 
