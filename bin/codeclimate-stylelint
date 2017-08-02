@@ -128,7 +128,7 @@ function configEngine() {
     if (!analysisFiles.length) {
       console.error(`No files to lint with the extensions: "${options.extensions.join('", "')}".`);
       console.error('See our documentation at https://docs.codeclimate.com/docs/stylelint for more information.');
-      process.exit(1);
+      process.exit(0);
     }
 
     const userConfig = engineConfig.config || {};
@@ -186,7 +186,7 @@ function analyzeFiles() {
         console.error(`Error: ${error.message}`);
       }
       console.error('See our documentation at https://docs.codeclimate.com/docs/stylelint for more information.');
-      process.exit(1);
+      process.exit(0);
     });
 }
 

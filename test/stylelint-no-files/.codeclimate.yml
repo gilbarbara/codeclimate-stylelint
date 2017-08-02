@@ -1,0 +1,12 @@
+---
+engines:
+  stylelint:
+    enabled: true
+    config:
+      ignore_warnings: true
+ratings:
+  paths:
+  - "**.scss"
+  - "**.less"
+exclude_paths:
+  - node_modules/**/*
