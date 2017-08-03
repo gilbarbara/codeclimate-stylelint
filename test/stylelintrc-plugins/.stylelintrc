@@ -3,7 +3,7 @@
     "stylelint-scss",
     "stylelint-order",
     "stylelint-selector-bem-pattern",
-    "stylelint-declaration-use-variable",
+    "stylelint-declaration-strict-value",
     "stylelint-csstree-validator"
   ],
   "rules": {
@@ -57,7 +57,6 @@
         "ignore": ["consecutive-duplicates-with-different-values"]
       }
     ],
-    "declaration-block-no-ignored-properties": true,
     "declaration-block-no-redundant-longhand-properties": true,
     "declaration-block-no-shorthand-property-overrides": true,
     "declaration-block-semicolon-newline-after": "always-multi-line",
@@ -98,7 +97,6 @@
     "media-feature-colon-space-before": "never",
     "media-feature-name-case": "lower",
     "media-feature-name-no-unknown": true,
-    "media-feature-no-missing-punctuation": true,
     "media-feature-parentheses-space-inside": "never",
     "media-feature-range-operator-space-after": "always",
     "media-feature-range-operator-space-before": "always",
@@ -114,17 +112,6 @@
     "number-no-trailing-zeros": true,
     "property-case": "lower",
     "property-no-unknown": true,
-    "rule-nested-empty-line-before": [
-      "always-multi-line", {
-        "except": ["first-nested"],
-        "ignore": ["after-comment"]
-      }
-    ],
-    "rule-non-nested-empty-line-before": [
-      "always-multi-line", {
-        "ignore": ["after-comment"]
-      }
-    ],
     "selector-attribute-brackets-space-inside": "never",
     "selector-attribute-operator-space-after": "never",
     "selector-attribute-operator-space-before": "never",
@@ -134,7 +121,6 @@
     "selector-list-comma-newline-after": "always",
     "selector-list-comma-space-before": "never",
     "selector-max-empty-lines": 0,
-    "selector-no-empty": true,
     "selector-pseudo-class-case": "lower",
     "selector-pseudo-class-no-unknown": true,
     "selector-pseudo-class-parentheses-space-inside": "never",
@@ -152,7 +138,6 @@
     "value-list-comma-space-before": "never",
     "value-list-max-empty-lines": 0,
     "color-named": "never",
-    "declaration-block-properties-order": ["alphabetical", { "severity": "warning" }],
     "declaration-property-value-blacklist": {
       "/^border/": ["none"]
     },
@@ -181,13 +166,38 @@
       },
       "utilitySelectors": "^\\.util-[a-z]+$"
     },
-    "order/declaration-block-order": [
+    "order/order": [
       "custom-properties",
-      "declarations"
+      "dollar-variables",
+      { "type": "at-rule", "name": "extend" },
+      { "type": "at-rule", "name": "include", "hasBlock": false },
+      "declarations",
+      {
+        "type": "at-rule",
+        "name": "include",
+        "hasBlock": true
+      },
+      "rules",
+      "at-rules"
     ],
-    "order/declaration-block-properties-alphabetical-order": true,
+    "scale-unlimited/declaration-strict-value": [
+      ["/color/", "z-index"],
+      {
+        "ignoreKeywords": {
+          "/color/": ["transparent", "inherit"]
+        }
+      }
+    ],
+    "order/properties-alphabetical-order": true,
+    "scss/at-import-no-partial-leading-underscore": true,
+    "scss/at-import-partial-extension-blacklist": ["scss"],
+    "scss/at-rule-no-unknown": true,
+    "scss/dollar-variable-colon-space-after": "always",
+    "scss/dollar-variable-colon-space-before": "never",
+    "scss/dollar-variable-no-missing-interpolation": true,
+    "scss/double-slash-comment-whitespace-inside": "always",
+    "scss/operator-no-unspaced": true,
     "scss/selector-no-redundant-nesting-selector": true,
-    "sh-waqar/declaration-use-variable": "color",
     "csstree/validator": true
   }
 }
