@@ -27,16 +27,16 @@
     "rimraf": "^2.6.1",
     "simple-git": "^1.75.0",
     "stylelint": "^8.0.0",
-    "stylelint-config-standard": "^16.0.0",
+    "stylelint-config-standard": "^17.0.0",
     "stylelint-config-suitcss": "^11.0.0",
-    "stylelint-config-wordpress": "^9.1.1",
+    "stylelint-config-wordpress": "^12.0.0",
     "stylelint-csstree-validator": "^1.1.1",
-    "stylelint-declaration-strict-value": "^1.0",
+    "stylelint-declaration-strict-value": "^1.0.4",
     "stylelint-declaration-use-variable": "^1.6.0",
-    "stylelint-order": "^0.4.3",
+    "stylelint-order": "^0.6.0",
     "stylelint-rscss": "^0.4.0",
-    "stylelint-scss": "^1.4.3",
-    "stylelint-selector-bem-pattern": "^1.0.0"
+    "stylelint-scss": "^2.0.0",
+    "stylelint-selector-bem-pattern": "^1.1.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
