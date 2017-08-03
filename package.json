@@ -23,9 +23,9 @@
     "build-readups": "./bin/build-readups"
   },
   "dependencies": {
-    "glob": "^7.1.1",
+    "glob": "^7.1.2",
     "rimraf": "^2.6.1",
-    "simple-git": "^1.69.0",
+    "simple-git": "^1.75.0",
     "stylelint": "^8.0.0",
     "stylelint-config-standard": "^16.0.0",
     "stylelint-config-suitcss": "^11.0.0",
@@ -39,14 +39,14 @@
     "stylelint-selector-bem-pattern": "^1.0.0"
   },
   "devDependencies": {
-    "babel-eslint": "^7.2.1",
-    "eslint": "^3.19.0",
-    "eslint-config-airbnb": "^14.1.0",
-    "eslint-import-resolver-node": "^0.3.0",
-    "eslint-plugin-babel": "^4.1.1",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "babel-eslint": "^7.2.3",
+    "eslint": "^4.3.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-import-resolver-node": "^0.3.1",
+    "eslint-plugin-babel": "^4.1.2",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-react": "^6.10.3"
+    "eslint-plugin-react": "^7.1.0"
   }
 }
