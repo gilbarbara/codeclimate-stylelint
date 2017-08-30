@@ -8,7 +8,7 @@ Stylelint is a tool to help you enforce consistent conventions and avoid errors 
 
 ### Development
 
-If you want to test the code for this engine locally, you'll need to install [docker](https://www.docker.com/).  
+If you want to test the code for this engine locally, you'll need to install [docker](https://www.docker.com/).
 
 Build the docker image with docker `docker build -t codeclimate/codeclimate-stylelint .` (You must be inside the project directory to do this)
 
@@ -30,6 +30,7 @@ To run the tests, cd into `tests/` and run `sh setup.sh`
 - [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard/): The standard shareable config for stylelint
 - [stylelint-config-wordpress](https://github.com/ntwb/stylelint-config-wordpress/): WordPress CSS Coding Standards shareable config for stylelint
 - [stylelint-config-suitcss](https://github.com/suitcss/stylelint-config-suitcss): SUIT CSS config for stylelint
+- [stylelint-config-sass-guidelines](https://github.com/bjankord/stylelint-config-sass-guidelines): A stylelint config based on https://sass-guidelin.es/
 
 ### Plugins
 
