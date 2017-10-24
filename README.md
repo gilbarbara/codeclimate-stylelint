@@ -46,6 +46,17 @@ This engine has support for the [recommended](https://github.com/stylelint/style
 
 If you need something else, please open an issue.
 
+### Processors
+
+This engine has support for the [recommended](https://github.com/stylelint/stylelint/blob/master/docs/user-guide/processors.md) processors:
+
+- [stylelint-processor-arbitrary-tags](https://github.com/mapbox/stylelint-processor-arbitrary-tags): Lint within user-specified tags.
+- [stylelint-processor-html](https://github.com/ccbikai/stylelint-processor-html): Lint within HTML `<style>` tags.
+- [stylelint-processor-markdown](https://github.com/mapbox/stylelint-processor-markdown): Lint within Markdown's [fenced code blocks](https://help.github.com/articles/creating-and-highlighting-code-blocks/).
+- [stylelint-processor-styled-components](https://github.com/styled-components/stylelint-processor-styled-components): Lint [styled-components](https://styled-components.com) and related CSS-in-JS libraries using tagged template literals.
+
+If you need something else, please open an issue.
+
 ### Need help?
 
 For help with stylelint, [check out their documentation](http://stylelint.io/).
