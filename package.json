@@ -24,30 +24,30 @@
   },
   "dependencies": {
     "glob": "^7.1.2",
-    "rimraf": "^2.6.1",
-    "simple-git": "^1.75.0",
-    "stylelint": "^8.0.0",
+    "rimraf": "^2.6.2",
+    "simple-git": "^1.80.1",
+    "stylelint": "^8.2.0",
     "stylelint-config-standard": "^17.0.0",
-    "stylelint-config-suitcss": "^11.0.0",
+    "stylelint-config-suitcss": "^12.0.0",
     "stylelint-config-wordpress": "^12.0.0",
-    "stylelint-csstree-validator": "^1.1.1",
+    "stylelint-csstree-validator": "^1.2.0",
     "stylelint-declaration-strict-value": "^1.0.4",
     "stylelint-declaration-use-variable": "^1.6.0",
-    "stylelint-order": "^0.6.0",
+    "stylelint-order": "^0.7.0",
     "stylelint-processor-html": "^1.0.0",
     "stylelint-rscss": "^0.4.0",
-    "stylelint-scss": "^2.0.1",
-    "stylelint-selector-bem-pattern": "^1.1.1"
+    "stylelint-scss": "^2.1.0",
+    "stylelint-selector-bem-pattern": "^2.0.0"
   },
   "devDependencies": {
-    "babel-eslint": "^7.2.3",
-    "eslint": "^4.4.1",
-    "eslint-config-airbnb": "^15.1.0",
+    "babel-eslint": "^8.0.1",
+    "eslint": "^4.10.0",
+    "eslint-config-airbnb": "^16.1.0",
     "eslint-import-resolver-node": "^0.3.1",
     "eslint-plugin-babel": "^4.1.2",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-react": "^7.2.1"
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-react": "^7.4.0"
   }
 }
