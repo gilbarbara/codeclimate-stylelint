@@ -1,0 +1,49 @@
+/*
+Sample CSS showing syntax extensions for CSS Modules with variables.
+https://github.com/css-modules/css-modules
+*/
+
+$white: #fff;
+$gray-light: #d4d4d6;
+$gray-middle: #7e8484;
+$primary-light: #00909a;
+$alert-error: #ce4657;
+$alert-success: #a6d887;
+$size-h6: 1.6rem;
+
+.field {
+  background: $white;
+  border: 0.1rem solid $gray-middle;
+  border-radius: 0;
+  box-shadow: 0;
+  font-size: $size-h6;
+  height: 3.6rem;
+  padding: 0 1rem;
+  width: 100%;
+  transition: all 0.5s ease;
+  line-height: 3.2rem;
+
+  &:focus {
+    border-color: transparent;
+    border-bottom-color: $primary-light;
+    color: $primary-light;
+    outline: none;
+    background: transparent;
+  }
+
+  &:disabled {
+    background: color($gray-light l(+ 5%));
+    color: $gray-middle;
+    border-color: transparent;
+  }
+
+  &::placeholder {
+    color: $gray-light;
+  }
+}
+
+.fieldError {
+  composes: field;
+  border: 0.2rem solid $alert-error;
+  color: $alert-error;
+}
