@@ -2,8 +2,6 @@
 engines:
   stylelint:
     enabled: true
-    config:
-      ignore_warnings: true
 ratings:
   paths:
   - "**.css"

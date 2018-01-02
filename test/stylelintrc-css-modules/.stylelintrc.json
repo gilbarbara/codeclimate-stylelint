@@ -7,6 +7,7 @@
     "selector-list-comma-newline-after": "never-multi-line",
     "comment-empty-line-before": null,
     "comment-whitespace-inside": null,
+    "property-no-unknown": true,
     "block-no-empty": null,
     "string-quotes": "single",
     "at-rule-no-unknown": null,

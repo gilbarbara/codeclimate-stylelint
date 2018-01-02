@@ -12,7 +12,7 @@ $alert-success: #a6d887;
 $size-h6: 1.6rem;
 
 .field {
-  background: $white;
+  composes: item from './shared.css';
   border: 0.1rem solid $gray-middle;
   border-radius: 0;
   box-shadow: 0;
