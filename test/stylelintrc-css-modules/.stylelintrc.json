@@ -1,0 +1,22 @@
+{
+  "extends":[
+    "stylelint-config-standard",
+    "stylelint-config-css-modules"
+  ],
+  "rules": {
+    "selector-list-comma-newline-after": "never-multi-line",
+    "comment-empty-line-before": null,
+    "comment-whitespace-inside": null,
+    "property-no-unknown": true,
+    "block-no-empty": null,
+    "string-quotes": "single",
+    "at-rule-no-unknown": null,
+    "at-rule-empty-line-before": ["always", {
+      "except": [ "inside-block", "blockless-after-same-name-blockless" ],
+      "ignore": [ "after-comment" ]
+    }],
+    "declaration-empty-line-before": "never",
+    "declaration-block-single-line-max-declarations": 3,
+    "unit-whitelist": ["rem", "%", "s", "deg"]
+  }
+}

@@ -1,0 +1,9 @@
+---
+engines:
+  stylelint:
+    enabled: true
+ratings:
+  paths:
+  - "**.css"
+exclude_paths:
+  - node_modules/**/*
