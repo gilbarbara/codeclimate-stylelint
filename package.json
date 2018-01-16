@@ -19,8 +19,9 @@
     "stylelint"
   ],
   "scripts": {
-    "lint": "eslint bin/",
-    "build-readups": "./bin/build-readups"
+    "lint": "eslint bin/*",
+    "build-readups": "./bin/build-readups",
+    "test": "./run-tests.sh"
   },
   "dependencies": {
     "glob": "^7.1.2",
