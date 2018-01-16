@@ -59,7 +59,9 @@ rimraf('.tmp_rules', error => {
           fs.statSync(path.join(rulesPath, file)).isDirectory()
         );
 
-        rules.forEach(d => (rulesOutput[d] = parser(d, rulesPath, 'https://github.com/stylelint/stylelint/blob/master/lib/rules/')));
+        rules.forEach(d => {
+          rulesOutput[d] = parser(d, rulesPath, 'https://github.com/stylelint/stylelint/blob/master/lib/rules/');
+        });
         resolve();
       });
   });
@@ -77,7 +79,9 @@ rimraf('.tmp_rules', error => {
           fs.statSync(path.join(rulesPath, file)).isDirectory()
         );
 
-        rules.forEach(d => (rulesOutput[`scss/${d}`] = parser(d, rulesPath, 'https://github.com/stylelint/stylelint/blob/master/src/rules/')));
+        rules.forEach(d => {
+          rulesOutput[`scss/${d}`] = parser(d, rulesPath, 'https://github.com/stylelint/stylelint/blob/master/src/rules/');
+        });
         resolve();
       });
   });
@@ -95,7 +99,9 @@ rimraf('.tmp_rules', error => {
           fs.statSync(path.join(rulesPath, file)).isDirectory() && file !== 'deprecated'
         );
 
-        rules.forEach(d => (rulesOutput[`order/${d}`] = parser(d, rulesPath, 'https://github.com/stylelint/stylelint/blob/master/rules/')));
+        rules.forEach(d => {
+          rulesOutput[`order/${d}`] = parser(d, rulesPath, 'https://github.com/stylelint/stylelint/blob/master/rules/');
+        });
         resolve();
       });
   });
