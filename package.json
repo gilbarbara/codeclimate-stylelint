@@ -20,36 +20,38 @@
   ],
   "scripts": {
     "lint": "eslint bin/*",
-    "build-readups": "./bin/build-readups",
-    "test": "./run-tests.sh"
+    "build-readups": "./bin/build-readups.js",
+    "test": "./run-tests.sh",
+    "precommit": "npm run lint"
   },
   "dependencies": {
     "glob": "^7.1.2",
     "rimraf": "^2.6.2",
-    "simple-git": "^1.80.1",
-    "stylelint": "^8.2.0",
+    "simple-git": "^1.85.0",
+    "stylelint": "^8.4.0",
     "stylelint-config-css-modules": "^1.1.0",
     "stylelint-config-standard": "^18.0.0",
-    "stylelint-config-suitcss": "^12.0.0",
+    "stylelint-config-suitcss": "^13.0.0",
     "stylelint-config-wordpress": "^12.0.0",
-    "stylelint-csstree-validator": "^1.2.0",
+    "stylelint-csstree-validator": "^1.2.1",
     "stylelint-declaration-strict-value": "^1.0.4",
     "stylelint-declaration-use-variable": "^1.6.0",
-    "stylelint-order": "^0.7.0",
+    "stylelint-order": "^0.8.0",
     "stylelint-processor-html": "^1.0.0",
     "stylelint-rscss": "^0.4.0",
-    "stylelint-scss": "^2.1.0",
+    "stylelint-scss": "^2.2.0",
     "stylelint-selector-bem-pattern": "^2.0.0"
   },
   "devDependencies": {
-    "babel-eslint": "^8.0.1",
-    "eslint": "^4.10.0",
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.15.0",
     "eslint-config-airbnb": "^16.1.0",
-    "eslint-import-resolver-node": "^0.3.1",
+    "eslint-import-resolver-node": "^0.3.2",
     "eslint-plugin-babel": "^4.1.2",
     "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-react": "^7.4.0"
+    "eslint-plugin-react": "^7.5.1",
+    "husky": "^0.14.3"
   }
 }
