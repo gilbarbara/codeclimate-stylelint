@@ -2,13 +2,14 @@
 engines:
   eslint:
     enabled: true
-    channel: eslint-3
+    channel: eslint-4
     checks:
       import/no-unresolved:
         enabled: false
 ratings:
   paths:
-  - "**.js"
+  - "*.js"
 exclude_paths:
+- .tmp_rules/**/*
 - node_modules/**/*
 - test/**/*
