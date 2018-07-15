@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
 
-count=0
-
 SOURCE="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 for d in test/*/ ; do
     echo ""
-    echo "▶ $d"
-    echo ""
+    echo "▶ Running $d ..."
     cd ${SOURCE}/${d}
-    codeclimate analyze --dev
-    count=$(($count+$?))
+    codeclimate analyze --dev 1>/dev/null
+    if [ "$?" -ne 0 ]; then
+      break
+    fi
 done

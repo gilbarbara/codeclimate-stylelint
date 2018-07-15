@@ -1,8 +1,0 @@
-/*
-Sample CSS showing syntax extensions for CSS Modules with variables.
-https://github.com/css-modules/css-modules
-*/
-
-.item {
-  background: $white;
-}
