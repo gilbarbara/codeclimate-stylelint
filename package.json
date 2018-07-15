@@ -26,6 +26,7 @@
     "test": "./run-tests.sh"
   },
   "dependencies": {
+    "@mapbox/stylelint-processor-arbitrary-tags": "^0.2.0",
     "glob": "^7.1.2",
     "rimraf": "^2.6.2",
     "simple-git": "^1.96.0",

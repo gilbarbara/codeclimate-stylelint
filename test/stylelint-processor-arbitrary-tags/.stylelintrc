@@ -1,0 +1,4 @@
+{
+  "extends": "stylelint-config-standard",
+  "processors": ["@mapbox/stylelint-processor-arbitrary-tags"]
+}
