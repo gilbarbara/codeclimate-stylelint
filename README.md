@@ -2,16 +2,16 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/ada032d755e8ee1de505/maintainability)](https://codeclimate.com/github/gilbarbara/codeclimate-stylelint/maintainability)
 
-A [Code Climate](http://codeclimate.com/) engine that wraps [stylelint](https://github.com/stylelint/stylelint).  
+A [Code Climate](http://codeclimate.com/) engine that wraps [stylelint](https://github.com/stylelint/stylelint).
 You can run it on your local environment using the Code Climate CLI, or on the hosted analysis platform.
 
-Stylelint is a tool to help you enforce consistent conventions and avoid errors in your stylesheets.  
+Stylelint is a tool to help you enforce consistent conventions and avoid errors in your stylesheets.
 It can be configured using a [configuration file](http://stylelint.io/user-guide/configuration/).
 
 ### Installation
 
 1. If you haven't already, [install the Code Climate CLI](https://github.com/codeclimate/codeclimate).
-2. Run `codeclimate engines:enable stylelint`. This command both installs the engine and enables it in your `.codeclimate.yml` file.
+2. Run `codeclimate engines:install stylelint`. This command both installs the engine and enables it in your `.codeclimate.yml` file.
 3. Add a stylelint [config](https://github.com/stylelint/stylelint/blob/master/docs/user-guide/configuration.md#loading-the-configuration-object) file.
 3. You're ready to analyze! Browse into your project's folder and run `codeclimate analyze`.
 
@@ -28,6 +28,7 @@ It can be configured using a [configuration file](http://stylelint.io/user-guide
 - [stylelint-config-css-modules](https://github.com/pascalduez/stylelint-config-css-modules): CSS modules shareable config
 - [stylelint-config-wordpress](https://github.com/ntwb/stylelint-config-wordpress/): WordPress CSS Coding Standards shareable config
 - [stylelint-rscss](https://github.com/rstacruz/stylelint-rscss): Validate RSCSS conventions.
+- [stylelint-config-recommended-scss](https://github.com/kristerkari/stylelint-config-recommended-scss): Community driven SCSS config
 
 ### Plugins
 
@@ -51,7 +52,7 @@ This engine has support for some of the [recommended](https://github.com/styleli
 
 ## Development
 
-If you want to run the code locally, you'll need to install [docker](https://www.docker.com/) and build the image.  
+If you want to run the code locally, you'll need to install [docker](https://www.docker.com/) and build the image.
 Navigate to the project in your terminal and run:
 
 ```bash
