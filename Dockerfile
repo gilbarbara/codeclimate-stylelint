@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:7
+FROM mhart/alpine-node:10
 MAINTAINER Gil Barbara
 
 WORKDIR /usr/src/app
