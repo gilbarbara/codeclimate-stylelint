@@ -23,9 +23,8 @@ const parser = (rule, baseDir, url) => {
 
   if (/## Options/.test(readme)) {
     excerpt = readme.replace(/\## Options[\s\S]+/, ''); //eslint-disable-line no-useless-escape
-  }
-  else {
-    excerpt = readme.replace(/```\n[\s\S]+/ig, '```');
+  } else {
+    excerpt = readme.replace(/```\n[\s\S]+/gi, '```');
   }
 
   if (url) {
@@ -47,73 +46,83 @@ rimraf('.tmp_rules', error => {
   console.log('Cloning repos...');
 
   const stylelint = new Promise((resolve, reject) => {
-    git
-      .clone('https://github.com/stylelint/stylelint', 'stylelint', gitError => {
-        if (gitError) {
-          reject(gitError);
-          return;
-        }
+    git.clone('https://github.com/stylelint/stylelint', 'stylelint', gitError => {
+      if (gitError) {
+        reject(gitError);
+        return;
+      }
 
-        const rulesPath = '.tmp_rules/stylelint/lib/rules/';
-        const rules = fs.readdirSync(rulesPath).filter(file =>
-          fs.statSync(path.join(rulesPath, file)).isDirectory()
+      const rulesPath = '.tmp_rules/stylelint/lib/rules/';
+      const rules = fs
+        .readdirSync(rulesPath)
+        .filter(file => fs.statSync(path.join(rulesPath, file)).isDirectory());
+
+      rules.forEach(d => {
+        rulesOutput[d] = parser(
+          d,
+          rulesPath,
+          'https://github.com/stylelint/stylelint/blob/master/lib/rules/',
         );
-
-        rules.forEach(d => {
-          rulesOutput[d] = parser(d, rulesPath, 'https://github.com/stylelint/stylelint/blob/master/lib/rules/');
-        });
-        resolve();
       });
+      resolve();
+    });
   });
 
   const stylelintSCSS = new Promise((resolve, reject) => {
-    git
-      .clone('https://github.com/kristerkari/stylelint-scss', 'stylelint-scss', gitError => {
-        if (gitError) {
-          reject(gitError);
-          return;
-        }
+    git.clone('https://github.com/kristerkari/stylelint-scss', 'stylelint-scss', gitError => {
+      if (gitError) {
+        reject(gitError);
+        return;
+      }
 
-        const rulesPath = '.tmp_rules/stylelint-scss/src/rules/';
-        const rules = fs.readdirSync(rulesPath).filter(file =>
-          fs.statSync(path.join(rulesPath, file)).isDirectory()
+      const rulesPath = '.tmp_rules/stylelint-scss/src/rules/';
+      const rules = fs
+        .readdirSync(rulesPath)
+        .filter(file => fs.statSync(path.join(rulesPath, file)).isDirectory());
+
+      rules.forEach(d => {
+        rulesOutput[`scss/${d}`] = parser(
+          d,
+          rulesPath,
+          'https://github.com/stylelint/stylelint/blob/master/src/rules/',
         );
-
-        rules.forEach(d => {
-          rulesOutput[`scss/${d}`] = parser(d, rulesPath, 'https://github.com/stylelint/stylelint/blob/master/src/rules/');
-        });
-        resolve();
       });
+      resolve();
+    });
   });
 
   const stylelintOrder = new Promise((resolve, reject) => {
-    git
-      .clone('https://github.com/hudochenkov/stylelint-order', 'stylelint-order', gitError => {
-        if (gitError) {
-          reject(gitError);
-          return;
-        }
+    git.clone('https://github.com/hudochenkov/stylelint-order', 'stylelint-order', gitError => {
+      if (gitError) {
+        reject(gitError);
+        return;
+      }
 
-        const rulesPath = '.tmp_rules/stylelint-order/rules/';
-        const rules = fs.readdirSync(rulesPath).filter(file =>
-          fs.statSync(path.join(rulesPath, file)).isDirectory() && file !== 'deprecated'
+      const rulesPath = '.tmp_rules/stylelint-order/rules/';
+      const rules = fs
+        .readdirSync(rulesPath)
+        .filter(
+          file => fs.statSync(path.join(rulesPath, file)).isDirectory() && file !== 'deprecated',
         );
 
-        rules.forEach(d => {
-          rulesOutput[`order/${d}`] = parser(d, rulesPath, 'https://github.com/stylelint/stylelint/blob/master/rules/');
-        });
-        resolve();
+      rules.forEach(d => {
+        rulesOutput[`order/${d}`] = parser(
+          d,
+          rulesPath,
+          'https://github.com/stylelint/stylelint/blob/master/rules/',
+        );
       });
+      resolve();
+    });
   });
 
-  Promise.all([stylelint, stylelintSCSS, stylelintOrder])
-    .then(() => {
-      fs.writeFile('config/contents/rules.json', JSON.stringify(rulesOutput, null, 2), err => {
-        if (err) {
-          console.log(err);
-        }
+  Promise.all([stylelint, stylelintSCSS, stylelintOrder]).then(() => {
+    fs.writeFile('config/contents/rules.json', JSON.stringify(rulesOutput, null, 2), err => {
+      if (err) {
+        console.log(err);
+      }
 
-        console.log('rules.json saved!');
-      });
+      console.log('rules.json saved!');
     });
+  });
 });

@@ -59,10 +59,7 @@ function buildIssueJson(message, filepath) {
 function isFileWithMatchingExtension(file, extensions) {
   const stats = fs.lstatSync(file);
   const extension = `.${file.split('.').pop()}`;
-  return (
-    stats.isFile() && !stats.isSymbolicLink()
-    && extensions.indexOf(extension) >= 0
-  );
+  return stats.isFile() && !stats.isSymbolicLink() && extensions.indexOf(extension) >= 0;
 }
 
 function prunePathsWithinSymlinks(paths) {
@@ -87,18 +84,15 @@ function inclusionBasedFileListBuilder(includePaths) {
     const filesAnalyzed = [];
 
     includePaths.forEach(fileOrDirectory => {
-      if ((/\/$/).test(fileOrDirectory)) {
+      if (/\/$/.test(fileOrDirectory)) {
         // if it ends in a slash, expand and push
-        const filesInThisDirectory = glob.sync(
-          `${fileOrDirectory}/**/**`
-        );
+        const filesInThisDirectory = glob.sync(`${fileOrDirectory}/**/**`);
         prunePathsWithinSymlinks(filesInThisDirectory).forEach(file => {
           if (isFileWithMatchingExtension(file, extensions)) {
             filesAnalyzed.push(file);
           }
         });
-      }
-      else if (isFileWithMatchingExtension(fileOrDirectory, extensions)) {
+      } else if (isFileWithMatchingExtension(fileOrDirectory, extensions)) {
         filesAnalyzed.push(fileOrDirectory);
       }
     });
@@ -115,11 +109,8 @@ function configEngine() {
     engineConfig = JSON.parse(fs.readFileSync('/config.json'));
 
     if (engineConfig.include_paths) {
-      buildFileList = inclusionBasedFileListBuilder(
-        engineConfig.include_paths
-      );
-    }
-    else {
+      buildFileList = inclusionBasedFileListBuilder(engineConfig.include_paths);
+    } else {
       buildFileList = inclusionBasedFileListBuilder(['./']);
     }
 
@@ -127,7 +118,9 @@ function configEngine() {
 
     if (!analysisFiles.length) {
       console.error(`No files to lint with the extensions: "${options.extensions.join('", "')}".`);
-      console.error('See our documentation at https://docs.codeclimate.com/docs/stylelint for more information.');
+      console.error(
+        'See our documentation at https://docs.codeclimate.com/docs/stylelint for more information.',
+      );
       process.exit(0);
     }
 
@@ -144,8 +137,7 @@ function configEngine() {
     }
 
     engineTiming();
-  }
-  else {
+  } else {
     buildFileList = inclusionBasedFileListBuilder(['./']);
     analysisFiles = buildFileList(options.extensions);
   }
@@ -154,12 +146,13 @@ function configEngine() {
 function analyzeFiles() {
   const lintTiming = runTiming('lint');
 
-  stylelint.lint({
-    configBasedir: `${__dirname}/..`,
-    configFile: options.configFile,
-    configOverrides: options.configOverrides,
-    files: analysisFiles
-  })
+  stylelint
+    .lint({
+      configBasedir: `${__dirname}/..`,
+      configFile: options.configFile,
+      configOverrides: options.configOverrides,
+      files: analysisFiles
+    })
     .then(data => {
       lintTiming();
 
@@ -180,12 +173,17 @@ function analyzeFiles() {
     })
     .catch(error => {
       if (error.message.includes('No configuration provided')) {
-        console.error('Error: No configuration provided. Make sure you have added a config file with rules enabled.');
-        console.error('See our documentation at https://docs.codeclimate.com/docs/stylelint for more information.');
-      }
-      else {
+        console.error(
+          'Error: No configuration provided. Make sure you have added a config file with rules enabled.',
+        );
+        console.error(
+          'See our documentation at https://docs.codeclimate.com/docs/stylelint for more information.',
+        );
+      } else {
         console.error(`Error: ${error.message}`);
-        console.error('See our documentation at https://docs.codeclimate.com/docs/stylelint for more information.');
+        console.error(
+          'See our documentation at https://docs.codeclimate.com/docs/stylelint for more information.',
+        );
 
         process.exit(1);
       }

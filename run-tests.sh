@@ -7,7 +7,7 @@ for d in test/*/ ; do
     echo "▶ Running $d ..."
     cd ${SOURCE}/${d}
     codeclimate analyze --dev 1>/dev/null
-    if [ "$?" -ne 0 ]; then
+    if [[ "$?" -ne 0 ]]; then
       break
     fi
 done
