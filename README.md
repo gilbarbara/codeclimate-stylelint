@@ -2,10 +2,10 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/ada032d755e8ee1de505/maintainability)](https://codeclimate.com/github/gilbarbara/codeclimate-stylelint/maintainability)
 
-A [Code Climate](http://codeclimate.com/) engine that wraps [stylelint](https://github.com/stylelint/stylelint).  
+A [Code Climate](http://codeclimate.com/) engine that wraps [stylelint](https://github.com/stylelint/stylelint).
 You can run it on your local environment using the Code Climate CLI, or on the hosted analysis platform.
 
-Stylelint is a tool to help you enforce consistent conventions and avoid errors in your stylesheets.  
+Stylelint is a tool to help you enforce consistent conventions and avoid errors in your stylesheets.
 It can be configured using a [configuration file](http://stylelint.io/user-guide/configuration/).
 
 ### Installation
@@ -26,6 +26,7 @@ It can be configured using a [configuration file](http://stylelint.io/user-guide
 - [stylelint-config-sass-guidelines](https://github.com/bjankord/stylelint-config-sass-guidelines): A stylelint config based on https://sass-guidelin.es/
 - [stylelint-config-suitcss](https://github.com/suitcss/stylelint-config-suitcss): SUIT CSS config
 - [stylelint-config-css-modules](https://github.com/pascalduez/stylelint-config-css-modules): CSS modules shareable config
+- [stylelint-config-prettier](https://github.com/prettier/stylelint-config-prettier): Turns off all rules that are unnecessary or might conflict with Prettier.
 - [stylelint-config-wordpress](https://github.com/ntwb/stylelint-config-wordpress/): WordPress CSS Coding Standards shareable config
 - [stylelint-rscss](https://github.com/rstacruz/stylelint-rscss): Validate RSCSS conventions.
 
@@ -51,7 +52,7 @@ This engine has support for some of the [recommended](https://github.com/styleli
 
 ## Development
 
-If you want to run the code locally, you'll need to install [docker](https://www.docker.com/) and build the image.  
+If you want to run the code locally, you'll need to install [docker](https://www.docker.com/) and build the image.
 Navigate to the project in your terminal and run:
 
 ```bash
