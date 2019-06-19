@@ -27,6 +27,7 @@ It can be configured using a [configuration file](http://stylelint.io/user-guide
 - [stylelint-config-suitcss](https://github.com/suitcss/stylelint-config-suitcss): SUIT CSS config
 - [stylelint-config-css-modules](https://github.com/pascalduez/stylelint-config-css-modules): CSS modules shareable config
 - [stylelint-config-wordpress](https://github.com/ntwb/stylelint-config-wordpress/): WordPress CSS Coding Standards shareable config
+- [stylelint-config-airbnb](https://github.com/csstree/stylelint-validator): Airbnb shareable config for stylelint.
 - [stylelint-rscss](https://github.com/rstacruz/stylelint-rscss): Validate RSCSS conventions.
 
 ### Plugins
