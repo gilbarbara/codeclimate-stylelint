@@ -5,7 +5,6 @@
   ],
   "rules": {
     "color-named": "never",
-    "declaration-block-properties-order": ["alphabetical", { "severity": "warning" }],
     "declaration-colon-newline-after": null,
     "declaration-empty-line-before": null,
     "declaration-property-value-blacklist": {
