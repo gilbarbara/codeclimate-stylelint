@@ -5,7 +5,7 @@
     "name": "Gil Barbara",
     "email": "gilbarbara@gmail.com"
   },
-  "languages" : ["CSS", "Less", "SCSS", "SugarSS"],
   "version": "9.9.0",
+  "languages" : ["CSS", "Less", "SCSS", "SugarSS", "JavaScript", "TypeScript"],
   "spec_version": "0.0.1"
 }
