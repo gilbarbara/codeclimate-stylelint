@@ -5,6 +5,9 @@ html {
 }
 
 body {
+  background: black;
+  border: 1px solid rgb(0,0,0);
+  color: #000;
   min-height: 100%;
 }
 
@@ -38,14 +41,14 @@ a {
   min-height: 100vh;
 
   > div > div {
-    color: #AAA;
+    color: #aaaaaa;
 
     .col {
       max-width: 200px;
 
       span {
         color: green;
-        
+
         span {
           background-color: rgba(#000, .1);
         }

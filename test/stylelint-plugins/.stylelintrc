@@ -1,14 +1,22 @@
 {
   "plugins": [
+    "stylelint-color-format",
     "stylelint-csstree-validator",
-    "stylelint-order",
     "stylelint-declaration-strict-value",
     "stylelint-declaration-use-variable",
+    "stylelint-no-indistinguishable-colors",
+    "stylelint-order",
     "stylelint-scss",
-    "stylelint-selector-bem-pattern"
+    "stylelint-selector-bem-pattern",
+    "stylelint-use-logical"
   ],
   "rules": {
+    "color-format/format": {
+      "format": "rgb"
+    },
+    "csstools/use-logical": true,
     "sh-waqar/declaration-use-variable": "color",
+    "plugin/stylelint-no-indistinguishable-colors": true,
     "plugin/selector-bem-pattern": {
       "componentName": "[A-Z]+",
       "componentSelectors": {
