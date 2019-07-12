@@ -28,6 +28,8 @@ It can be configured using a [configuration file](http://stylelint.io/user-guide
 - [stylelint-config-css-modules](https://github.com/pascalduez/stylelint-config-css-modules): CSS modules shareable config
 - [stylelint-config-wordpress](https://github.com/ntwb/stylelint-config-wordpress/): WordPress CSS Coding Standards shareable config
 - [stylelint-rscss](https://github.com/rstacruz/stylelint-rscss): Validate RSCSS conventions.
+- [stylelint-config-recommended](https://github.com/stylelint/stylelint-config-recommended): The recommended shareable config
+- [stylelint-config-styled-components](https://github.com/styled-components/stylelint-config-styled-components): The shareable stylelint config for stylelint-processor-styled-components
 
 ### Plugins
 
@@ -48,6 +50,7 @@ This engine has support for some of the [recommended](https://github.com/styleli
 
 - [stylelint-processor-html](https://github.com/ccbikai/stylelint-processor-html): Lint within HTML `<style>` tags. ***DEPRECATED***
 - [stylelint-processor-arbitrary-tags](https://github.com/mapbox/stylelint-processor-arbitrary-tags): A stylelint processor that allows you to lint CSS within arbitrary tags
+- [stylelint-processor-styled-components](https://github.com/styled-components/stylelint-processor-styled-components): Lint styles written for styled components
 
 ## Development
 
