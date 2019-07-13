@@ -1,17 +1,16 @@
 @value colors: './colors.css';
 @value primary, secondary from colors;
 
+:root {
+  --color-background: #fb0;
+}
+
 .base {
   content: 'base';
-  color: primary;
 }
 
 .composed {
   composes: base;
-}
-
-.composedWith {
-  compose-with: base;
 }
 
 .flexible {
@@ -21,4 +20,8 @@
 
 :global(.js) .progressive {
   display: block;
+}
+
+:export {
+  background-color: var(--color-background);
 }
