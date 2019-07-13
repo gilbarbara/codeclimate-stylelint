@@ -1,24 +1,52 @@
 {
   "plugins": [
+    "stylelint-8-point-grid",
+    "stylelint-a11y",
+    "stylelint-at-rule-no-children",
     "stylelint-color-format",
     "stylelint-csstree-validator",
+    "stylelint-declaration-block-no-ignored-properties",
     "stylelint-declaration-strict-value",
     "stylelint-declaration-use-variable",
+    "stylelint-high-performance-animation",
+    "stylelint-media-use-custom-media",
     "stylelint-no-indistinguishable-colors",
+    "stylelint-no-unsupported-browser-features",
     "stylelint-order",
+    "stylelint-prettier",
     "stylelint-scss",
     "stylelint-selector-bem-pattern",
+    "stylelint-selector-tag-no-without-class",
     "stylelint-use-logical",
-    "stylelint-value-no-unknown-custom-properties"
+    "stylelint-use-nesting",
+    "stylelint-value-no-unknown-custom-properties",
+    "stylelint-z-index-value-constraint"
   ],
   "rules": {
+    "a11y/no-outline-none": true,
+    "a11y/no-text-align-justify": true,
+    "a11y/selector-pseudo-class-focus": true,
+    "aditayvm/at-rule-no-children": true,
     "color-format/format": {
       "format": "rgb"
     },
     "csstools/use-logical": true,
+    "csstools/media-use-custom-media": false,
+    "csstools/use-nesting": true,
     "csstools/value-no-unknown-custom-properties": true,
-    "sh-waqar/declaration-use-variable": "color",
-    "plugin/stylelint-no-indistinguishable-colors": true,
+    "csstree/validator": true,
+    "plugin/8-point-grid": {
+      "base": 4,
+      "whitelist": ["2px", "1px"],
+      "ignore": ["width", "height"]
+    },
+    "plugin/declaration-block-no-ignored-properties": true,
+    "plugin/no-low-performance-animation-properties": true,
+    "plugin/no-unsupported-browser-features": [
+      true, {
+        "browsers": ["> 1%", "not dead", "not op_mini all"]
+      }
+    ],
     "plugin/selector-bem-pattern": {
       "componentName": "[A-Z]+",
       "componentSelectors": {
@@ -26,6 +54,12 @@
         "combined": "^\\.combined-{componentName}-[a-z]+$"
       },
       "utilitySelectors": "^\\.util-[a-z]+$"
+    },
+    "plugin/selector-tag-no-without-class": ["div", "span"],
+    "plugin/stylelint-no-indistinguishable-colors": true,
+    "plugin/z-index-value-constraint": {
+      "min": 1,
+      "max": 10
     },
     "order/order": [
       "custom-properties",
@@ -41,6 +75,8 @@
       "rules",
       "at-rules"
     ],
+    "order/properties-alphabetical-order": true,
+    "prettier/prettier": true,
     "scale-unlimited/declaration-strict-value": [
       ["/color/", "z-index"],
       {
@@ -49,7 +85,6 @@
         }
       }
     ],
-    "order/properties-alphabetical-order": true,
     "scss/at-import-no-partial-leading-underscore": true,
     "scss/at-import-partial-extension-blacklist": ["scss"],
     "scss/at-rule-no-unknown": true,
@@ -59,6 +94,6 @@
     "scss/double-slash-comment-whitespace-inside": "always",
     "scss/operator-no-unspaced": true,
     "scss/selector-no-redundant-nesting-selector": true,
-    "csstree/validator": true
+    "sh-waqar/declaration-use-variable": "color"
   }
 }

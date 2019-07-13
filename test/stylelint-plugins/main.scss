@@ -10,7 +10,7 @@ html {
 
 body {
   background: black;
-  border: 1px solid rgb(0,0,0);
+  border: 1px solid rgb(0, 0, 0);
   color: #000;
   min-height: 100%;
 }
@@ -19,6 +19,7 @@ img {
   height: auto;
   opacity: .1;
   max-width: 100%;
+  z-index: 100;
 }
 
 a {
@@ -27,6 +28,10 @@ a {
 
   &.disabled {
     pointer-events: none;
+  }
+
+  a:hover {
+    transform: scale(1.1);
   }
 }
 
@@ -37,7 +42,7 @@ a {
       color: var(--black);
 
       &--app {
-        color: #000000;
+        color: #000;
       }
     }
   }
@@ -47,7 +52,7 @@ a {
   min-height: 100vh;
 
   > div > div {
-    color: #aaaaaa;
+    color: #aaa;
 
     .col {
       max-width: 200px;
@@ -61,10 +66,14 @@ a {
       }
     }
   }
+
+  @media (--md) {
+    min-height: 80vh;
+  }
 }
 
 .not-found {
-  text-align: center;
+  text-align: justify;
 
   h1 {
     font-size: 128px;
@@ -72,7 +81,18 @@ a {
 
     @media all and (min-width: 300px) {
       font-size: 256px;
+    }
+  }
 
+  a {
+    display: inline;
+    transition: margin 350ms ease-in;
+    width: 100px;
+  }
+
+  @media screen and (max-width: 480px) {
+    a {
+      display: none;
     }
   }
 }
