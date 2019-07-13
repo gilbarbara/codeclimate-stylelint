@@ -8,13 +8,15 @@
     "stylelint-order",
     "stylelint-scss",
     "stylelint-selector-bem-pattern",
-    "stylelint-use-logical"
+    "stylelint-use-logical",
+    "stylelint-value-no-unknown-custom-properties"
   ],
   "rules": {
     "color-format/format": {
       "format": "rgb"
     },
     "csstools/use-logical": true,
+    "csstools/value-no-unknown-custom-properties": true,
     "sh-waqar/declaration-use-variable": "color",
     "plugin/stylelint-no-indistinguishable-colors": true,
     "plugin/selector-bem-pattern": {

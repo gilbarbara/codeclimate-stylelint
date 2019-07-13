@@ -1,3 +1,7 @@
+:root {
+  --color-background: rgb(255, 187, 0);
+}
+
 html {
   font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
@@ -18,6 +22,7 @@ img {
 }
 
 a {
+  color: var(--color-background);
   text-decoration: none;
 
   &.disabled {
@@ -29,6 +34,7 @@ a {
   &__items__kols {
     &__item {
       background-color: #fff;
+      color: var(--black);
 
       &--app {
         color: #000000;
