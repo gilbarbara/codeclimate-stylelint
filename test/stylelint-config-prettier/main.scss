@@ -1,0 +1,69 @@
+html {
+  font-size: 62.5%;
+  -webkit-font-smoothing: antialiased;
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  background: rgba(255, 0, 128, 0.5);
+}
+
+img {
+  height: auto;
+  opacity: 0.1;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+
+  &.disabled {
+    pointer-events: none;
+  }
+}
+
+.app {
+  &__items__kols {
+    &__item {
+      background-color: #fff;
+
+      &--app {
+        color: #000;
+      }
+    }
+  }
+}
+
+#react {
+  min-height: 100vh;
+
+  > div > div {
+    color: #aaa;
+
+    .col {
+      max-width: 200px;
+
+      span {
+        color: green;
+
+        span {
+          background-color: rgba(#000, 0.1);
+        }
+      }
+    }
+  }
+}
+
+.not-found {
+  text-align: center;
+
+  h1 {
+    font-size: 128px;
+    margin: 0;
+
+    @media all and (min-width: 300px) {
+      font-size: 256px;
+    }
+  }
+}
