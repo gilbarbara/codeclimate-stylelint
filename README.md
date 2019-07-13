@@ -11,7 +11,7 @@ It can be configured using a [configuration file](http://stylelint.io/user-guide
 ### Installation
 
 1. If you haven't already, [install the Code Climate CLI](https://github.com/codeclimate/codeclimate).
-2. Run `codeclimate engines:enable stylelint`. This command both installs the engine and enables it in your `.codeclimate.yml` file.
+2. Run `codeclimate engines:install stylelint`. This command both installs the engine and enables it in your `.codeclimate.yml` file.
 3. Add a stylelint [config](https://github.com/stylelint/stylelint/blob/master/docs/user-guide/configuration.md#loading-the-configuration-object) file.
 3. You're ready to analyze! Browse into your project's folder and run `codeclimate analyze`.
 
@@ -22,50 +22,72 @@ It can be configured using a [configuration file](http://stylelint.io/user-guide
 
 ### Configs
 
-- [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard/): The standard shareable config
-- [stylelint-config-sass-guidelines](https://github.com/bjankord/stylelint-config-sass-guidelines): A stylelint config based on https://sass-guidelin.es/
-- [stylelint-config-suitcss](https://github.com/suitcss/stylelint-config-suitcss): SUIT CSS config
 - [stylelint-config-css-modules](https://github.com/pascalduez/stylelint-config-css-modules): CSS modules shareable config
-- [stylelint-config-wordpress](https://github.com/ntwb/stylelint-config-wordpress/): WordPress CSS Coding Standards shareable config
-- [stylelint-rscss](https://github.com/rstacruz/stylelint-rscss): Validate RSCSS conventions.
+- [stylelint-config-prettier](https://github.com/prettier/stylelint-config-prettier): Turns off all rules that are unnecessary or might conflict with prettier
 - [stylelint-config-recommended](https://github.com/stylelint/stylelint-config-recommended): The recommended shareable config
+- [stylelint-config-sass-guidelines](https://github.com/bjankord/stylelint-config-sass-guidelines): A stylelint config based on https://sass-guidelin.es/
+- [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard/): The standard shareable config
 - [stylelint-config-styled-components](https://github.com/styled-components/stylelint-config-styled-components): The shareable stylelint config for stylelint-processor-styled-components
+- [stylelint-config-suitcss](https://github.com/suitcss/stylelint-config-suitcss): SUIT CSS config
+- [stylelint-config-wordpress](https://github.com/ntwb/stylelint-config-wordpress/): WordPress CSS Coding Standards shareable config
+- [stylelint-rscss](https://github.com/rstacruz/stylelint-rscss): Validate RSCSS conventions
+
+### Processors
+
+This engine has support for the [recommended](https://github.com/stylelint/stylelint/blob/master/docs/user-guide/processors.md) processors:
+
+- [stylelint-processor-arbitrary-tags](https://github.com/mapbox/stylelint-processor-arbitrary-tags): A stylelint processor that allows you to lint CSS within arbitrary tags
+- [stylelint-processor-html](https://github.com/ccbikai/stylelint-processor-html): Lint within HTML `<style>` tags. ***DEPRECATED
 
 ### Plugins
 
 This engine has support for the [recommended](https://github.com/stylelint/stylelint/blob/master/docs/user-guide/plugins.md) plugins:
 
-- [stylelint-order](https://github.com/hudochenkov/stylelint-order): Order related linting rules.
-- [stylelint-scss](https://github.com/kristerkari/stylelint-scss): SCSS specific linting rules.
-- [stylelint-declaration-strict-value](https://github.com/AndyOGo/stylelint-declaration-strict-value): Enforces variables, functions or custom CSS keywords for property's values.
-- [stylelint-declaration-use-variable](https://github.com/sh-waqar/stylelint-declaration-use-variable): Specify properties for which a SCSS variable must be used.
-- [stylelint-selector-bem-pattern](https://github.com/davidtheclark/stylelint-selector-bem-pattern): Specify a BEM pattern for selectors.
-- [stylelint-csstree-validator](https://github.com/csstree/stylelint-validator): Validate CSS values to match W3C specs and browsers extensions.
+- [stylelint-8-point-grid](https://github.com/dcrtantuco/stylelint-8-point-grid): Validate CSS with 8-point grid guideline
+- [stylelint-a11y](https://github.com/YozhikM/stylelint-a11y): Enforce a11y rules
+- [stylelint-at-rule-no-children](https://github.com/adityavm/stylelint-at-rule-no-children): Disallow block declarations inside at rules
+- [stylelint-color-format](https://github.com/filipekiss/stylelint-color-format): Convert HEX colors to either RGB or HSL
+- [stylelint-csstree-validator](https://github.com/csstree/stylelint-validator): Validate CSS values to match W3C specs and browsers extensions
+- [stylelint-declaration-block-no-ignored-properties](https://github.com/kristerkari/stylelint-declaration-block-no-ignored-properties): Disallow property values that are ignored due to another property value in the same rule
+- [stylelint-declaration-strict-value](https://github.com/AndyOGo/stylelint-declaration-strict-value): Enforces variables, functions or custom CSS keywords for property's values
+- [stylelint-declaration-use-variable](https://github.com/sh-waqar/stylelint-declaration-use-variable): Check the use of scss, less or custom css variable on declaration
+- [stylelint-high-performance-animation](https://github.com/kristerkari/stylelint-high-performance-animation): Prevent the use of low performance animation and transition properties
+- [stylelint-media-use-custom-media](https://github.com/csstools/stylelint-media-use-custom-media): Enforce usage of custom media queries in CSS
+- [stylelint-no-indistinguishable-colors](https://github.com/ierhyna/stylelint-no-indistinguishable-colors): Disallows colors that are suspiciously close to being identical, using [css-colorguard](https://github.com/SlexAxton/css-colorguard)
+- [stylelint-no-unsupported-browser-features](https://github.com/ismay/stylelint-no-unsupported-browser-features): Disallow features that are unsupported by the browsers that you are targeting
+- [stylelint-order](https://github.com/hudochenkov/stylelint-order): Order related linting rules
+- [stylelint-prettier](https://github.com/prettier/stylelint-prettier): Runs Prettier as a Stylelint rule
+- [stylelint-scss](https://github.com/kristerkari/stylelint-scss): SCSS specific linting rules
+- [stylelint-selector-bem-pattern](https://github.com/davidtheclark/stylelint-selector-bem-pattern): Specify a BEM pattern for selectors
+- [stylelint-selector-tag-no-without-class](https://github.com/Moxio/stylelint-selector-tag-no-without-class): Disallow certain tags without a class qualifier in selectors
+- [stylelint-use-logical](https://github.com/csstools/stylelint-use-logical): Enforce usage of logical properties and values in CSS
+- [stylelint-use-nesting](https://github.com/csstools/stylelint-use-nesting): Enforce nesting when it is possible in CSS
+- [stylelint-value-no-unknown-custom-properties](https://github.com/csstools/stylelint-value-no-unknown-custom-properties): Disallow usage of unknown custom properties
+- [stylelint-z-index-value-constraint](https://github.com/kristerkari/stylelint-z-index-value-constraint): Set minimum and maximum constraint value for z-index.
 
 If you need something else, please open an issue.
-
-### Processors
-
-This engine has support for some of the [recommended](https://github.com/stylelint/stylelint/blob/master/docs/user-guide/processors.md) processors:
-
-- [stylelint-processor-html](https://github.com/ccbikai/stylelint-processor-html): Lint within HTML `<style>` tags. ***DEPRECATED***
-- [stylelint-processor-arbitrary-tags](https://github.com/mapbox/stylelint-processor-arbitrary-tags): A stylelint processor that allows you to lint CSS within arbitrary tags
-- [stylelint-processor-styled-components](https://github.com/styled-components/stylelint-processor-styled-components): Lint styles written for styled components
 
 ## Development
 
-If you want to run the code locally, you'll need to install [docker](https://www.docker.com/) and build the image.  
-Navigate to the project in your terminal and run:
+To run the code locally, you'll need to install codeclimate's [CLI](https://github.com/codeclimate/codeclimate) and [docker](https://www.docker.com/).  
+Navigate to the package directory in your terminal and run:
 
 ```bash
-docker build -t codeclimate/codeclimate-stylelint .
+npm run build
+npm test
 ```
 
-### Tests
+### Adding packages
 
-run `npm test` or `./run-tests.sh` after building the image.
+Install the desired packages as dependencies and test it.
 
-If you need something else, please open an issue.
+If it is a plugin, add it to the `.stylelint` config in the `test/stylelint-plugins` directory and make sure it trigger some issues. Update the `snapshot` file with the new issue count. 
+
+If it is a config or processor, add a new directory inside the `tests` directory with the name of the package and make sure it trigger some issues.
+
+Before commiting your changes run the tests!
+
+Something else, please open an issue.
 
 ## Need help?
 
