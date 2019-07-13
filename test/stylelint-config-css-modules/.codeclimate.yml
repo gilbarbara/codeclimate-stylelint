@@ -1,11 +1,7 @@
 ---
-engines:
+version: "2"
+plugins:
   stylelint:
     enabled: true
     config:
       ignore_warnings: true
-ratings:
-  paths:
-  - "**.css"
-exclude_paths:
-  - node_modules/**/*
