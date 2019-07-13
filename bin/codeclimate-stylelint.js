@@ -6,7 +6,7 @@ const fs = require('fs');
 const glob = require('glob');
 
 const rules = JSON.parse(fs.readFileSync(`${__dirname}/../config/contents/rules.json`, 'utf-8'));
-const options = { extensions: ['.css', '.scss', '.less', '.sss', '.html', '.vue', '.js', '.jsx', '.ts', '.tsx'] };
+const options = { extensions: ['.css', '.scss', '.sass', '.less', '.sss', '.html', '.vue', '.js', '.jsx', '.ts', '.tsx'] };
 
 let engineConfig;
 let analysisFiles;
