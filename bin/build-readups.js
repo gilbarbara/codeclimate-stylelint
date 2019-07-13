@@ -68,6 +68,29 @@ rimraf('.tmp_rules', error => {
     });
   });
 
+  const stylelintA11y = new Promise((resolve, reject) => {
+    git.clone('https://github.com/YozhikM/stylelint-a11y', 'stylelint-a11y', gitError => {
+      if (gitError) {
+        reject(gitError);
+        return;
+      }
+
+      const rulesPath = '.tmp_rules/stylelint-a11y/src/rules/';
+      const rules = fs
+        .readdirSync(rulesPath)
+        .filter(file => fs.statSync(path.join(rulesPath, file)).isDirectory());
+
+      rules.forEach(d => {
+        rulesOutput[`a11y/${d}`] = parser(
+          d,
+          rulesPath,
+          'https://github.com/YozhikM/stylelint-a11y/blob/master/src/rules/',
+        );
+      });
+      resolve();
+    });
+  });
+
   const stylelintSCSS = new Promise((resolve, reject) => {
     git.clone('https://github.com/kristerkari/stylelint-scss', 'stylelint-scss', gitError => {
       if (gitError) {
@@ -84,7 +107,7 @@ rimraf('.tmp_rules', error => {
         rulesOutput[`scss/${d}`] = parser(
           d,
           rulesPath,
-          'https://github.com/stylelint/stylelint/blob/master/src/rules/',
+          'https://github.com/kristerkari/stylelint-scss/blob/master/src/rules/',
         );
       });
       resolve();
@@ -116,7 +139,7 @@ rimraf('.tmp_rules', error => {
     });
   });
 
-  Promise.all([stylelint, stylelintSCSS, stylelintOrder]).then(() => {
+  Promise.all([stylelint, stylelintA11y, stylelintSCSS, stylelintOrder]).then(() => {
     fs.writeFile('config/contents/rules.json', JSON.stringify(rulesOutput, null, 2), err => {
       if (err) {
         console.log(err);
