@@ -45,7 +45,6 @@
     "stylelint-no-indistinguishable-colors": "^1.2.1",
     "stylelint-order": "^3.0.1",
     "stylelint-processor-html": "^1.0.0",
-    "stylelint-processor-styled-components": "^1.8.0",
     "stylelint-rscss": "^0.4.0",
     "stylelint-scss": "^3.9.1",
     "stylelint-selector-bem-pattern": "^2.1.0",
