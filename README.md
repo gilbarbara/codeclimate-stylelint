@@ -25,6 +25,7 @@ It can be configured using a [configuration file](http://stylelint.io/user-guide
 - [stylelint-config-css-modules](https://github.com/pascalduez/stylelint-config-css-modules): CSS modules shareable config
 - [stylelint-config-prettier](https://github.com/prettier/stylelint-config-prettier): Turns off all rules that are unnecessary or might conflict with prettier
 - [stylelint-config-recommended](https://github.com/stylelint/stylelint-config-recommended): The recommended shareable config
+- [stylelint-config-recommended-scss](https://github.com/kristerkari/stylelint-config-recommended-scss): The recommended shareable SCSS config
 - [stylelint-config-sass-guidelines](https://github.com/bjankord/stylelint-config-sass-guidelines): A stylelint config based on https://sass-guidelin.es/
 - [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard/): The standard shareable config
 - [stylelint-config-styled-components](https://github.com/styled-components/stylelint-config-styled-components): The shareable stylelint config for stylelint-processor-styled-components
