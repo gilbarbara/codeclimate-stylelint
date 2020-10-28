@@ -1,6 +1,6 @@
 {
   "name": "codeclimate-stylelint",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "description": "A Code Climate engine for the mighty, modern CSS linter.",
   "license": "MIT",
   "author": "Gil Barbara <gilbarbara@gmail.com>",
