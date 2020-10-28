@@ -22,6 +22,7 @@ It can be configured using a [configuration file](http://stylelint.io/user-guide
 
 ### Configs
 
+- [stylelint-config-concentric-order](https://github.com/chaucerbao/stylelint-config-concentric-order): Validates the order of CSS properties according to [Concentric CSS](http://rhodesmill.org/brandon/2011/concentric-css/).
 - [stylelint-config-css-modules](https://github.com/pascalduez/stylelint-config-css-modules): CSS modules shareable config
 - [stylelint-config-prettier](https://github.com/prettier/stylelint-config-prettier): Turns off all rules that are unnecessary or might conflict with prettier
 - [stylelint-config-recommended](https://github.com/stylelint/stylelint-config-recommended): The recommended shareable config
@@ -29,6 +30,7 @@ It can be configured using a [configuration file](http://stylelint.io/user-guide
 - [stylelint-config-sass-guidelines](https://github.com/bjankord/stylelint-config-sass-guidelines): A stylelint config based on https://sass-guidelin.es/
 - [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard/): The standard shareable config
 - [stylelint-config-styled-components](https://github.com/styled-components/stylelint-config-styled-components): The shareable stylelint config for stylelint-processor-styled-components
+- [stylelint-config-sugarss-recommended](https://github.com/kkoudev/stylelint-config-sugarss-recommended): The recommended shareable config of SugarSS for stylelint.
 - [stylelint-config-suitcss](https://github.com/suitcss/stylelint-config-suitcss): SUIT CSS config
 - [stylelint-config-wordpress](https://github.com/ntwb/stylelint-config-wordpress/): WordPress CSS Coding Standards shareable config
 - [stylelint-rscss](https://github.com/rstacruz/stylelint-rscss): Validate RSCSS conventions
