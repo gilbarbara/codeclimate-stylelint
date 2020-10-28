@@ -22,7 +22,7 @@ const parser = (rule, baseDir, url) => {
   }
 
   if (/## Options/.test(readme)) {
-    excerpt = readme.replace(/\## Options[\s\S]+/, ''); //eslint-disable-line no-useless-escape
+    excerpt = readme.replace(/## Options[\s\S]+/, ''); //eslint-disable-line no-useless-escape
   } else {
     excerpt = readme.replace(/```\n[\s\S]+/gi, '```');
   }
@@ -61,7 +61,7 @@ rimraf('.tmp_rules', error => {
         rulesOutput[d] = parser(
           d,
           rulesPath,
-          'https://github.com/stylelint/stylelint/blob/master/lib/rules/',
+          'https://github.com/stylelint/stylelint/blob/master/lib/rules/'
         );
       });
       resolve();
@@ -84,7 +84,7 @@ rimraf('.tmp_rules', error => {
         rulesOutput[`a11y/${d}`] = parser(
           d,
           rulesPath,
-          'https://github.com/YozhikM/stylelint-a11y/blob/master/src/rules/',
+          'https://github.com/YozhikM/stylelint-a11y/blob/master/src/rules/'
         );
       });
       resolve();
@@ -107,7 +107,7 @@ rimraf('.tmp_rules', error => {
         rulesOutput[`scss/${d}`] = parser(
           d,
           rulesPath,
-          'https://github.com/kristerkari/stylelint-scss/blob/master/src/rules/',
+          'https://github.com/kristerkari/stylelint-scss/blob/master/src/rules/'
         );
       });
       resolve();
@@ -125,14 +125,14 @@ rimraf('.tmp_rules', error => {
       const rules = fs
         .readdirSync(rulesPath)
         .filter(
-          file => fs.statSync(path.join(rulesPath, file)).isDirectory() && file !== 'deprecated',
+          file => fs.statSync(path.join(rulesPath, file)).isDirectory() && file !== 'deprecated'
         );
 
       rules.forEach(d => {
         rulesOutput[`order/${d}`] = parser(
           d,
           rulesPath,
-          'https://github.com/stylelint/stylelint/blob/master/rules/',
+          'https://github.com/stylelint/stylelint/blob/master/rules/'
         );
       });
       resolve();

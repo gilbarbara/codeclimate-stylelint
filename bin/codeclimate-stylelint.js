@@ -119,7 +119,7 @@ function configEngine() {
     if (!analysisFiles.length) {
       console.error(`No files to lint with the extensions: "${options.extensions.join('", "')}".`);
       console.error(
-        'See our documentation at https://docs.codeclimate.com/docs/stylelint for more information.',
+        'See our documentation at https://docs.codeclimate.com/docs/stylelint for more information.'
       );
       process.exit(0);
     }
@@ -174,15 +174,15 @@ function analyzeFiles() {
     .catch(error => {
       if (error.message.includes('No configuration provided')) {
         console.error(
-          'Error: No configuration provided. Make sure you have added a config file with rules enabled.',
+          'Error: No configuration provided. Make sure you have added a config file with rules enabled.'
         );
         console.error(
-          'See our documentation at https://docs.codeclimate.com/docs/stylelint for more information.',
+          'See our documentation at https://docs.codeclimate.com/docs/stylelint for more information.'
         );
       } else {
         console.error(`Error: ${error.message}`);
         console.error(
-          'See our documentation at https://docs.codeclimate.com/docs/stylelint for more information.',
+          'See our documentation at https://docs.codeclimate.com/docs/stylelint for more information.'
         );
 
         process.exit(1);
