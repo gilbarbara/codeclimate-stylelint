@@ -24,7 +24,7 @@
     "prettier": "^2.1.2",
     "rimraf": "^3.0.2",
     "simple-git": "^2.21.0",
-    "stylelint": "^13.7.2",
+    "stylelint": "13.3.0",
     "stylelint-8-point-grid": "^1.0.0",
     "stylelint-a11y": "^1.2.3",
     "stylelint-at-rule-no-children": "^0.3.1",
