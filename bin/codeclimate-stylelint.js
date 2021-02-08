@@ -4,6 +4,8 @@
 const stylelint = require('stylelint');
 const fs = require('fs');
 const glob = require('glob');
+const CONFIG_PATH = "/config.json"
+const CODE_PATH = "/code"
 
 const rules = JSON.parse(fs.readFileSync(`${__dirname}/../config/contents/rules.json`, 'utf-8'));
 const options = { extensions: ['.css', '.scss', '.sass', '.less', '.sss', '.html', '.vue', '.js', '.jsx', '.ts', '.tsx'] };
@@ -105,8 +107,8 @@ function configEngine() {
   const engineTiming = runTiming('engineConfig');
   let buildFileList;
 
-  if (fs.existsSync('/config.json')) {
-    engineConfig = JSON.parse(fs.readFileSync('/config.json'));
+  if (fs.existsSync(CONFIG_PATH)) {
+    engineConfig = JSON.parse(fs.readFileSync(CONFIG_PATH));
 
     if (engineConfig.include_paths) {
       buildFileList = inclusionBasedFileListBuilder(engineConfig.include_paths);
@@ -148,7 +150,7 @@ function analyzeFiles() {
 
   stylelint
     .lint({
-      configBasedir: `${__dirname}/..`,
+      configBasedir: CODE_PATH,
       configFile: options.configFile,
       configOverrides: options.configOverrides,
       files: analysisFiles
