@@ -1,0 +1,7 @@
+---
+version: "2"
+plugins:
+  stylelint:
+    enabled: true
+    config:
+      ignore_warnings: true
