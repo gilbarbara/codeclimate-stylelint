@@ -176,7 +176,7 @@ function analyzeFiles() {
 
   stylelint
     .lint({
-      configBasedir: CODE_PATH,
+      configBasedir: `${__dirname}/..`,
       configFile: options.configFile,
       configOverrides: options.configOverrides,
       files: analysisFiles
