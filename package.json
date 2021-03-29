@@ -32,6 +32,7 @@
     "stylelint-color-format": "^1.1.0",
     "stylelint-config-concentric-order": "^4.0.0",
     "stylelint-config-css-modules": "^2.2.0",
+    "stylelint-config-idiomatic-order": "^8.1.0",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-config-recommended-scss": "^4.2.0",

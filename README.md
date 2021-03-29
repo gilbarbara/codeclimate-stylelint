@@ -24,6 +24,7 @@ It can be configured using a [configuration file](http://stylelint.io/user-guide
 
 - [stylelint-config-concentric-order](https://github.com/chaucerbao/stylelint-config-concentric-order): Validates the order of CSS properties according to [Concentric CSS](http://rhodesmill.org/brandon/2011/concentric-css/).
 - [stylelint-config-css-modules](https://github.com/pascalduez/stylelint-config-css-modules): CSS modules shareable config
+- [stylelint-config-idiomatic-order](https://github.com/ream88/stylelint-config-idiomatic-order): A stylelint config to order your styles based on [idiomatic-css](https://github.com/necolas/idiomatic-css)
 - [stylelint-config-prettier](https://github.com/prettier/stylelint-config-prettier): Turns off all rules that are unnecessary or might conflict with prettier
 - [stylelint-config-recommended](https://github.com/stylelint/stylelint-config-recommended): The recommended shareable config
 - [stylelint-config-recommended-scss](https://github.com/kristerkari/stylelint-config-recommended-scss): The recommended shareable SCSS config
