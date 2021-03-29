@@ -4,8 +4,10 @@
 const stylelint = require('stylelint');
 const fs = require('fs');
 const glob = require('glob');
+const { cosmiconfigSync } = require('cosmiconfig');
 const CONFIG_PATH = "/config.json"
 const CODE_PATH = "/code"
+
 
 const rules = JSON.parse(fs.readFileSync(`${__dirname}/../config/contents/rules.json`, 'utf-8'));
 const options = { extensions: ['.css', '.scss', '.sass', '.less', '.sss', '.html', '.vue', '.js', '.jsx', '.ts', '.tsx'] };
@@ -103,9 +105,35 @@ function inclusionBasedFileListBuilder(includePaths) {
   };
 }
 
+function obtainStylelintConfig() {
+  const explorerSync = cosmiconfigSync('stylelint');
+  let result;
+
+  if (options.configFile) {
+    result = explorerSync.load(`${process.cwd()}/${options.configFile}`);
+  } else {
+    result = explorerSync.search(process.cwd());
+  }
+
+  return result.config;
+}
+
+function setAbsolutePathOnIgnoreFiles(stylelintConfig) {
+  if (!options.configOverrides) options.configOverrides = {};
+
+  if (stylelintConfig.ignoreFiles) {
+    options.configOverrides['ignoreFiles'] = stylelintConfig.ignoreFiles.map((file) =>  `${CODE_PATH}/${file}`);
+  }
+}
+
 function configEngine() {
   const engineTiming = runTiming('engineConfig');
+  const stylelintConfig = obtainStylelintConfig();
   let buildFileList;
+
+  if (stylelintConfig) {
+    setAbsolutePathOnIgnoreFiles(stylelintConfig);
+  }
 
   if (fs.existsSync(CONFIG_PATH)) {
     engineConfig = JSON.parse(fs.readFileSync(CONFIG_PATH));
@@ -129,9 +157,7 @@ function configEngine() {
     const userConfig = engineConfig.config || {};
 
     if (userConfig.ignore_warnings) {
-      options.configOverrides = {
-        quiet: true
-      };
+      options.configOverrides['quiet'] = true;
     }
 
     if (userConfig.config) {
@@ -150,7 +176,7 @@ function analyzeFiles() {
 
   stylelint
     .lint({
-      configBasedir: CODE_PATH,
+      configBasedir: `${__dirname}/..`,
       configFile: options.configFile,
       configOverrides: options.configOverrides,
       files: analysisFiles
