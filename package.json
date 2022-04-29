@@ -20,6 +20,7 @@
   ],
   "dependencies": {
     "@mapbox/stylelint-processor-arbitrary-tags": "^0.3.0",
+    "@wordpress/stylelint-config": "^20.0.2",
     "cosmiconfig": "^7.0.0",
     "glob": "^7.1.6",
     "prettier": "^2.1.2",
