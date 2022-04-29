@@ -32,7 +32,8 @@ It can be configured using a [configuration file](http://stylelint.io/user-guide
 - [stylelint-config-styled-components](https://github.com/styled-components/stylelint-config-styled-components): The shareable stylelint config for stylelint-processor-styled-components
 - [stylelint-config-sugarss-recommended](https://github.com/kkoudev/stylelint-config-sugarss-recommended): The recommended shareable config of SugarSS for stylelint.
 - [stylelint-config-suitcss](https://github.com/suitcss/stylelint-config-suitcss): SUIT CSS config
-- [stylelint-config-wordpress](https://github.com/ntwb/stylelint-config-wordpress/): WordPress CSS Coding Standards shareable config
+- [@wordpress/stylelint-config](https://github.com/WordPress/gutenberg/blob/trunk/packages/stylelint-config/README.md): WordPress CSS Coding Standards shareable config (current, supports CSS and SCSS)
+- [stylelint-config-wordpress](https://github.com/ntwb/stylelint-config-wordpress/): WordPress CSS Coding Standards shareable config (deprecated)
 - [stylelint-rscss](https://github.com/rstacruz/stylelint-rscss): Validate RSCSS conventions
 
 ### Processors
@@ -88,10 +89,10 @@ Install the desired packages as dependencies and test it.
 If it is a plugin, add it to the `.stylelint` config in the `test/stylelint-plugins` directory and make sure it trigger some issues. Update the `snapshot` file with the new issue count. 
 
 #### To add tests for a config or processor
-- Add a new directory inside the `tests` directory with the name of the package
-- Add sample code to the new folder which you know will trigger an error, along with a snapshot file containing the number of issues that the sample code should trigger, a codeclimate.yml file, and .stylelintrc configuration that uses the new config or processor
-- Run `npm run build` to rebuild this repository
-- Run `npm test`, and ensure all tests pass successfully, including your new test
+- Add a new directory inside the `tests` directory with the name of the package.
+- Add sample code to the new folder which you know will trigger an error, along with a snapshot file containing the number of issues that the sample code should trigger, a codeclimate.yml file, and .stylelintrc configuration that uses the new config or processor.
+- Run `npm run build` to rebuild the docker image. This allows Codeclimate to run with your new package.
+- Run `npm test`, and ensure all tests pass successfully, including your new test.
 
 Before commiting your changes run the tests!
 
